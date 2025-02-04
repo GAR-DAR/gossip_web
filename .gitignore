@@ -44,3 +44,11 @@ Thumbs.db
 .vs/
 /Backend/Backend/obj
 /Backend/Backend/bin
+Backend/Backend/obj/Backend.csproj.nuget.dgspec.json
+
+Backend/Backend/obj/project.assets.json
+Backend/Backend/obj/project.nuget.cache
+Backend/Backend/obj/Debug/net8.0/Backend.AssemblyInfo.cs
+Backend/Backend/obj/Debug/net8.0/Backend.AssemblyInfoInputs.cache
+Backend/Backend/obj/Debug/net8.0/Backend.assets.cache
+Backend/Backend/obj/Debug/net8.0/Backend.GeneratedMSBuildEditorConfig.editorconfig

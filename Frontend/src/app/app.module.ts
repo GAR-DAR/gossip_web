@@ -20,6 +20,7 @@ import { ChatElementComponent } from './navigation/chat/chat-element/chat-elemen
 import { OpenedChatComponent } from './navigation/chat/opened-chat/opened-chat.component';
 import { MessagesFieldComponent } from './navigation/chat/opened-chat/messages-field/messages-field.component';
 import { InputComponent } from './navigation/chat/opened-chat/input/input.component';
+import { TopbarSearchComponent } from './core/topbar-search/topbar-search.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { InputComponent } from './navigation/chat/opened-chat/input/input.compon
     ChatElementComponent,
     OpenedChatComponent,
     MessagesFieldComponent,
-    InputComponent
+    InputComponent,
+    TopbarSearchComponent
   ],
   imports: [
     BrowserModule,
