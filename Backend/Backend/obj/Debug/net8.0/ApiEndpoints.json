@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "Backend.Controllers.TopicController",
+    "Method": "LoadAllTopics",
+    "RelativePath": "Topics/home",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "EmailLogin",
     "RelativePath": "Users/login/email",
