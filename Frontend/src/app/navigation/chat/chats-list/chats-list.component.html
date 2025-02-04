@@ -1,1 +1,7 @@
-<p>chats-list works!</p>
+<div class="container">
+    <ul class="chat-list">
+        <li class="chat-element" *ngFor="let chat of chats">
+            <app-chat-element></app-chat-element>
+        </li>
+    </ul>
+</div>

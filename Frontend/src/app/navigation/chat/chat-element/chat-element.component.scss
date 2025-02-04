@@ -1,0 +1,28 @@
+.container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 10px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.user-icon {
+    height: 60px;
+    border-radius: 50%;
+}
+
+.name-of-chat {
+    font-size: 20px;
+    color: white;
+}
+
+.last-message {
+    color: lightslategray;
+}
+
+.name-and-last-message {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 10px;
+}
