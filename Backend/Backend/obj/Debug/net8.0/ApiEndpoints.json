@@ -1,5 +1,47 @@
 [
   {
+    "ContainingType": "Backend.Controllers.UserController",
+    "Method": "EmailLogin",
+    "RelativePath": "Users/login/email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UserController",
+    "Method": "UsernameLogin",
+    "RelativePath": "Users/login/username",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "username",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "password",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "Backend.Controllers.WeatherForecastController",
     "Method": "Get",
     "RelativePath": "WeatherForecast",
