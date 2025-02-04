@@ -36,5 +36,17 @@ namespace Backend.Controllers
 
             return Ok(userModelID);
         }
+
+        [HttpPost("register/second")]
+        public IActionResult RegisterSecond(UserModel userModel)
+        {
+            UserModelID userModelID = new(userModel);
+            UsersService.SignUp(userModelID, Backend.Program.Globals.db.Connection);
+            if (userModelID == null)
+            {
+                return NotFound();
+            }
+            return Ok(userModelID);
+        }
     }
 }

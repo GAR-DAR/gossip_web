@@ -42,5 +42,5 @@ testem.log
 Thumbs.db
 
 .vs/
-/Backend/Backend/obj/Debug/net8.0
-/Backend/Backend/bin/Debug/net8.0
+/Backend/Backend/obj
+/Backend/Backend/bin
