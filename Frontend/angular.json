@@ -3,21 +3,18 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Gossip": {
+    "Frontend": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss",
-          "standalone": false,
-          "skipTests": true
+          "standalone": false
         },
         "@schematics/angular:directive": {
-          "standalone": false,
-          "skipTests": true
+          "standalone": false
         },
         "@schematics/angular:pipe": {
-          "standalone": false,
-          "skipTests": true
+          "standalone": false
         }
       },
       "root": "",
@@ -27,7 +24,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/gossip",
+            "outputPath": "dist/frontend",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -36,7 +33,6 @@
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -66,13 +62,7 @@
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true,
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.development.ts"
-                }
-              ]
+              "sourceMap": true
             }
           },
           "defaultConfiguration": "production"
@@ -81,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Gossip:build:production"
+              "buildTarget": "Frontend:build:production"
             },
             "development": {
-              "buildTarget": "Gossip:build:development"
+              "buildTarget": "Frontend:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -102,7 +92,6 @@
             "tsConfig": "tsconfig.spec.json",
             "inlineStyleLanguage": "scss",
             "assets": [
-              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
@@ -116,8 +105,5 @@
         }
       }
     }
-  },
-  "cli": {
-    "analytics": false
   }
 }
