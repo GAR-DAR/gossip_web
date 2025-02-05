@@ -37,6 +37,18 @@ namespace Backend.Controllers
             return Ok(userModelID);
         }
 
+        [HttpPost("register/first")]
+        public IActionResult RegisterFirst(String username, String email, String password)
+        {
+
+            if (UsersService.Exists("email", email, Backend.Program.Globals.db.Connection))
+            {
+                return Conflict();
+            }
+
+            return Ok();
+        }
+
         [HttpPost("register/second")]
         public IActionResult RegisterSecond(UserModel userModel)
         {

@@ -2381,23 +2381,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ASUS\\.nuget\\packages\\": {},
+    "C:\\Users\\York\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\UINIVERSITY\\Gossip\\gossip_web_2\\Backend\\Backend\\Backend.csproj",
+      "projectUniqueName": "C:\\Users\\York\\source\\repos\\gossip_web\\Backend\\Backend\\Backend.csproj",
       "projectName": "Backend",
-      "projectPath": "D:\\UINIVERSITY\\Gossip\\gossip_web_2\\Backend\\Backend\\Backend.csproj",
-      "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-      "outputPath": "D:\\UINIVERSITY\\Gossip\\gossip_web_2\\Backend\\Backend\\obj\\",
+      "projectPath": "C:\\Users\\York\\source\\repos\\gossip_web\\Backend\\Backend\\Backend.csproj",
+      "packagesPath": "C:\\Users\\York\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\York\\source\\repos\\gossip_web\\Backend\\Backend\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\York\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
