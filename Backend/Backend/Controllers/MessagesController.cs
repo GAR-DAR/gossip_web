@@ -8,7 +8,8 @@ namespace Backend.Controllers
     [Route("Messages")]
     public class MessagesController : Controller
     {
-        [HttpPost("send")]
+        [HttpPost("send")] //gets MessageModelID from client, writes to db and sends it back with correct message ID given by db.
+        //Shold delete and use ChatHub?
         public IActionResult Send([FromBody] MessageModelID message)
         {
             if(message == null) return BadRequest("Message cannot be empty. Please provide a valid message.");
@@ -22,11 +23,13 @@ namespace Backend.Controllers
             return Ok(dbMessage);
         }
 
-        [HttpGet("all")]
+        [HttpGet("all")] //gets all messages of client from db and sends them as List<MessageModelID> back.
+        //Maybe we need signal(db service) to get latest message from every client's chat from db to display them for each chat window.
+        //And signal(db service) to get all messages of chat by chat's ID. How to send user ID or selected chat ID, is it get or post method?
         public IActionResult GetAll()
         {
-            Data
-            return null;
+            List<MessageModelID> messages = MessagesService.SelectMessageModelsByUserId(0, Backend.Program.Globals.db.Connection);
+            return Ok(messages);
         }
     }
 }
