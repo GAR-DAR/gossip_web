@@ -9,11 +9,10 @@ namespace Backend.Controllers
     [Route("Users")]
     public class UserController : ControllerBase
     {
-
         [HttpPost("login/username")]
         public IActionResult UsernameLogin(String username, String password)
         {
-           
+
             UserModelID userModelID = UsersService.SignIn(null, username, password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
@@ -50,15 +49,73 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register/second")]
-        public IActionResult RegisterSecond(UserModel userModel)
+        public IActionResult RegisterSecond([FromBody] UserModel userModel)
         {
-            UserModelID userModelID = new(userModel);
-            UsersService.SignUp(userModelID, Backend.Program.Globals.db.Connection);
-            if (userModelID == null)
+            if (userModel == null)
             {
-                return NotFound();
+                return BadRequest("Invalid data.");
             }
-            return Ok(userModelID);
+
+            UserModelID userModelID = new(userModel);
+            userModelID = UsersService.SignUp(userModelID, Backend.Program.Globals.db.Connection);
+            
+            if(userModelID == null)
+            {
+                return BadRequest("Couldn't insert to DB. Check if request is valid.");
+            }
+            
+            return Ok();
         }
+
+        [HttpPost("edit/userinfo")]
+        public IActionResult EditUserInfo([FromBody] UserModel ChangedUserModel)
+        {
+            if(ChangedUserModel == null)
+            {
+                return BadRequest("Invalid data.");
+            }
+
+            UserModelID ChangedUserModelID = new(ChangedUserModel);
+
+            if (!UsersService.ChangeInfo(ChangedUserModelID, Backend.Program.Globals.db.Connection))
+            {
+                return BadRequest("Couldn't update info in DB. Check if user exist or request is valid.");
+            }
+
+            return Ok();
+        }
+
+        [HttpPost("edit/userphoto")]
+        public IActionResult EditUserPhoto([FromBody] UserModel ChangedUserModel)
+        {
+            if (ChangedUserModel == null)
+            {
+                return BadRequest("Invalid data.");
+            }
+
+            if (!UsersService.ChangePhoto(ChangedUserModel.ID, ChangedUserModel.Photo, Backend.Program.Globals.db.Connection))
+            {
+                return BadRequest("Couldn't update photo in DB. Check if user exist or request is valid.");
+            }
+
+            return Ok();
+        }
+
+        [HttpPost("edit/userpassword")]
+        public IActionResult EditUserPassword([FromBody] UserModel ChangedUserModel)
+        {
+            if (ChangedUserModel == null)
+            {
+                return BadRequest("Invalid data");
+            }
+
+            if (!UsersService.ChangePassword(ChangedUserModel.ID, ChangedUserModel.Password, Backend.Program.Globals.db.Connection))
+            {
+                return BadRequest("Couldn't update password in DB. Check if user exist or request is valid.");
+            }
+
+            return Ok();
+        }
+        
     }
 }
