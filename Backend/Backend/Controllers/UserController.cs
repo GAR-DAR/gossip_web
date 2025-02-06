@@ -63,8 +63,8 @@ namespace Backend.Controllers
             {
                 return BadRequest("Couldn't insert to DB. Check if request is valid.");
             }
-
-            return Ok(userModelID);
+            
+            return Ok();
         }
 
         [HttpPost("edit/userinfo")]
@@ -82,7 +82,7 @@ namespace Backend.Controllers
                 return BadRequest("Couldn't update info in DB. Check if user exist or request is valid.");
             }
 
-            return Ok(ChangedUserModel);
+            return Ok();
         }
 
         [HttpPost("edit/userphoto")]
@@ -98,7 +98,7 @@ namespace Backend.Controllers
                 return BadRequest("Couldn't update photo in DB. Check if user exist or request is valid.");
             }
 
-            return Ok(ChangedUserModel);
+            return Ok();
         }
 
         [HttpPost("edit/userpassword")]
@@ -114,7 +114,7 @@ namespace Backend.Controllers
                 return BadRequest("Couldn't update password in DB. Check if user exist or request is valid.");
             }
 
-            return Ok(ChangedUserModel);
+            return Ok();
         }
         
     }
