@@ -9,14 +9,14 @@ namespace Backend.Controllers
     public class TopicController : Controller
     {
         //pagination will be implemented in the future
-        [HttpPost("home")]
-        public IActionResult LoadAllTopics()
+        [HttpGet("home")]
+        public IActionResult LoadAllTopics(int? page, int? amount)
         {
-            IEnumerable<TopicModelID> topicModelIDs = TopicsService.SelectAll(Backend.Program.Globals.db.Connection);
+            IEnumerable<TopicModelID> topicModelIDs = (page.HasValue && amount.HasValue)
+                ? TopicsService.SelectPage(page.Value, amount.Value, Program.Globals.db.Connection)
+                : TopicsService.SelectAll(Backend.Program.Globals.db.Connection);
           
             return Ok(topicModelIDs);
         }
-
-
     }
 }

@@ -16,6 +16,7 @@ public static class TopicsService
             SELECT id
             FROM topics
             WHERE is_deleted = FALSE
+            ORDER BY created_at DESC 
             """;
 
         using var selectCommand = new MySqlCommand(selectAllQuery, conn);
@@ -23,7 +24,6 @@ public static class TopicsService
 
         while (reader.Read())
         {
-
             topicIds.Add(reader.GetUInt32("id"));
         }
 
@@ -34,6 +34,45 @@ public static class TopicsService
     {
         List<TopicModelID> topics = [];
         List<uint> topicIds = SelectAllIds(conn);
+
+        foreach (var topicId in topicIds)
+        {
+            topics.Add(SelectById(topicId, conn));
+        }
+
+        return topics;
+    }
+
+    public static List<uint> SelectPageIds(int page, int amount, MySqlConnection conn)
+    {
+        List<uint> topicIds = [];
+
+        string selectPageQuery =
+            """
+            SELECT id
+            FROM topics
+            WHERE is_deleted = FALSE
+            ORDER BY created_at DESC
+            LIMIT @amount OFFSET @previous_amount
+            """;
+
+        using var selectCommand = new MySqlCommand(selectPageQuery, conn);
+        selectCommand.Parameters.AddWithValue("@amount", amount);
+        selectCommand.Parameters.AddWithValue("@previous_amount", (page - 1) * amount);
+
+        using var reader = selectCommand.ExecuteReader();
+        while (reader.Read())
+        {
+            topicIds.Add(reader.GetUInt32("id"));
+        }
+
+        return topicIds;
+    }
+
+    public static List<TopicModelID> SelectPage(int page, int amount, MySqlConnection conn)
+    {
+        List<TopicModelID> topics = [];
+        List<uint> topicIds = SelectPageIds(page, amount, conn);
 
         foreach (var topicId in topicIds)
         {
