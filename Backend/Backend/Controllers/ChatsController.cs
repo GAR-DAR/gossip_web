@@ -26,9 +26,11 @@ namespace Backend.Controllers
         }
 
         [HttpGet("all")]
-        public IActionResult GetUserChats([FromBody] UserModelID userModelID)
+        public IActionResult GetUserChats(uint userID)
         {
-            IEnumerable<ChatModelID> chats = ChatsService.SelectChatsByUser(userModelID.ID, Globals.db.Connection);
+            if(userID == 0) return BadRequest("User ID cannot be null. Please provide valid user ID.");
+
+            IEnumerable<ChatModelID> chats = ChatsService.SelectChatsByUser(userID, Globals.db.Connection);
             if (chats == null)
             {
                 return StatusCode(500, "A database error occurred while fetching the chats.");
