@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("SignUp")]
-    public class SignUpController : Controller
+    [Route("ReferenceData")]
+    public class ReferenceDataController : Controller
     {
         [HttpGet("statuses")]
         public IActionResult GetStatuses()

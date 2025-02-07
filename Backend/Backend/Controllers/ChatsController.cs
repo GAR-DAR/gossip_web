@@ -12,7 +12,7 @@ namespace Backend.Controllers
     public class ChatsController : Controller
     {
         [HttpPost("create")]
-        public IActionResult ChatCreate(ChatModelID chat) 
+        public IActionResult ChatCreate([FromBody] ChatModelID chat) 
         {
             if(chat == null) return BadRequest("Chat details cannot be null. Please provide valid chat information.");
 

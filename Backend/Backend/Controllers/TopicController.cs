@@ -22,7 +22,7 @@ namespace Backend.Controllers
             return Ok(topicModelIDs);
         }
 
-        [HttpGet("createTopic")]
+        [HttpPost("createTopic")]
         public IActionResult CreateTopic([FromBody] TopicModelID topicModelID)
         {
             if (topicModelID == null)
@@ -57,7 +57,7 @@ namespace Backend.Controllers
         [HttpGet("getReplyToReply")]
         public IActionResult GetReplyToReply(uint parentReplyID)
         {
-            //needs service method to get all replies to a reply
+            
             IEnumerable<ChildReplyModelID> replies = RepliesService.SelectChildRepliesByParent(parentReplyID, Globals.db.Connection);
 
             if (replies == null)
@@ -71,10 +71,10 @@ namespace Backend.Controllers
             }
         }
 
+       
 
-
-        [HttpGet("createReply")]
-        public IActionResult createReply(ParentReplyModelID reply)
+        [HttpPost("createReply")]
+        public IActionResult createReply([FromBody] ParentReplyModelID reply)
         {
             if (RepliesService.AddParent(reply, Globals.db.Connection) != null)
             {
@@ -86,8 +86,8 @@ namespace Backend.Controllers
             }
         }
 
-        [HttpGet("createReplyToReply")]
-        public IActionResult createReplyToReply(ChildReplyModelID reply)
+        [HttpPost("createReplyToReply")]
+        public IActionResult createReplyToReply([FromBody] ChildReplyModelID reply)
         {
             if(RepliesService.AddChild(reply, Globals.db.Connection) != null)
             {
