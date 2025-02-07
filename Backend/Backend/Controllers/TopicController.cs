@@ -1,6 +1,8 @@
 ﻿using Backend.Models.ModelsID;
+using Backend.Models.ModelsFull;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using static Backend.Program;
 
 namespace Backend.Controllers
@@ -37,18 +39,67 @@ namespace Backend.Controllers
         }
 
         [HttpGet("getReplies")]
-        public IActionResult GetReplies()
+        public IActionResult GetReplies(uint topicID)
         {
+            IEnumerable<ParentReplyModelID> replies = TopicsService.SelectParentRepliesByTopic(topicID, Globals.db.Connection);
 
-            return Ok();
+            if (replies == null)
+            {
+                return StatusCode(500, "A database error occurred while fetching the replies.");
+            }
+            else
+            {
+                //client can add it to its local model and we will load other replies when user clicks on the reply to reply (for each of them separately)
+                return Ok(replies);
+            }
         }
+
+        [HttpGet("getReplyToReply")]
+        public IActionResult GetReplyToReply(uint parentReplyID)
+        {
+            //needs service method to get all replies to a reply
+            IEnumerable<ChildReplyModelID> replies = RepliesService.SelectChildRepliesByParent(parentReplyID, Globals.db.Connection);
+
+            if (replies == null)
+            {
+                return StatusCode(500, "A database error occurred while fetching the replies.");
+            }
+            else
+            {
+                //client can add it to its local model and we will load other replies when user clicks on the reply to reply (for each of them separately)
+                return Ok(replies);
+            }
+        }
+
+
 
         [HttpGet("createReply")]
-        public IActionResult createReply()
+        public IActionResult createReply(ParentReplyModelID reply)
         {
-            
-            return Ok();
+            if (RepliesService.AddParent(reply, Globals.db.Connection) != null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500, "A database error occurred while creating the reply.");
+            }
         }
+
+        [HttpGet("createReplyToReply")]
+        public IActionResult createReplyToReply(ChildReplyModelID reply)
+        {
+            if(RepliesService.AddChild(reply, Globals.db.Connection) != null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500, "A database error occurred while creating the reply.");
+            }
+        }
+
+
 
 
 
