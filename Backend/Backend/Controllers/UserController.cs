@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("Users")]
+    [Route("User")]
     public class UserController : ControllerBase
     {
         [HttpPost("login/username")]
