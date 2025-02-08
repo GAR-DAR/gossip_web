@@ -1,4 +1,5 @@
-﻿using Backend.Models.ModelsFull;
+﻿using System.Net;
+using Backend.Models.ModelsFull;
 using Backend.Models.ModelsID;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
@@ -82,22 +83,6 @@ namespace Backend.Controllers
             return Ok();
         }
 
-        [HttpPost("edit/userphoto")]
-        public IActionResult EditUserPhoto(uint userID, string photo)
-        {
-            if (userID == null)
-            {
-                return BadRequest("Invalid data.");
-            }
-
-            if (!UsersService.ChangePhoto(userID, photo, Backend.Program.Globals.db.Connection))
-            {
-                return BadRequest("Couldn't update photo in DB. Check if user exist or request is valid.");
-            }
-
-            return Ok();
-        }
-
         [HttpPost("edit/userpassword")]
         public IActionResult EditUserPassword(uint userID, string password)
         {
@@ -112,6 +97,80 @@ namespace Backend.Controllers
             }
 
             return Ok();
+        }
+
+        [HttpPost("edit/userphoto")]
+        public IActionResult EditUserPhoto(uint userID, IFormFile photo)
+        {
+            if (userID == 0 || photo == null)
+            {
+                return BadRequest("Invalid data.");
+            }
+
+            // Upload the photo to the FTP server
+            string ftpUrl = "ftp://ftp.byethost7.com/htdocs/users/";
+            string ftpUsername = "b7_37868429";
+            string ftpPassword = "hello12_";
+            string fileName = $"{userID}{Path.GetExtension(photo.FileName)}";
+            string fileUrl = ftpUrl + fileName;
+
+            try
+            {
+                // Check if the file already exists and delete it
+                FtpWebRequest deleteRequest = (FtpWebRequest)WebRequest.Create(fileUrl);
+                deleteRequest.Method = WebRequestMethods.Ftp.DeleteFile;
+                deleteRequest.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                try
+                {
+                    using (var deleteResponse = (FtpWebResponse)deleteRequest.GetResponse())
+                    {
+                        // File deleted successfully
+                    }
+                }
+                catch (WebException ex)
+                {
+                    FtpWebResponse response = (FtpWebResponse)ex.Response;
+                    if (response.StatusCode != FtpStatusCode.ActionNotTakenFileUnavailable)
+                    {
+                        return StatusCode(500, $"An error occurred while deleting the existing photo: {ex.Message}");
+                    }
+                }
+
+                // Upload the new file
+                using (var stream = photo.OpenReadStream())
+                {
+                    FtpWebRequest uploadRequest = (FtpWebRequest)WebRequest.Create(fileUrl);
+                    uploadRequest.Method = WebRequestMethods.Ftp.UploadFile;
+                    uploadRequest.Credentials = new NetworkCredential(ftpUsername, ftpPassword);
+                    uploadRequest.ContentLength = stream.Length;
+
+                    using (var requestStream = uploadRequest.GetRequestStream())
+                    {
+                        stream.CopyTo(requestStream);
+                    }
+
+                    using (var response = (FtpWebResponse)uploadRequest.GetResponse())
+                    {
+                        if (response.StatusCode != FtpStatusCode.ClosingData)
+                        {
+                            return StatusCode(500, "Failed to upload photo to FTP server.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"An error occurred while uploading the photo: {ex.Message}");
+            }
+
+            // Update the user's photo URL in the database
+            string photoUrl = $"http://gossip.byethost7.com/users/{fileName}";
+            if (!UsersService.ChangePhoto(userID, photoUrl, Backend.Program.Globals.db.Connection))
+            {
+                return BadRequest("Couldn't update photo in DB. Check if user exists or request is valid.");
+            }
+
+            return Ok(new { PhotoUrl = photoUrl });
         }
 
     }
