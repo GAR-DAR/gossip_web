@@ -1,6 +1,8 @@
 ﻿using Backend.Models.ModelsID;
+using Backend.Models.ModelsFull;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 using static Backend.Program;
 
 namespace Backend.Controllers
@@ -13,6 +15,8 @@ namespace Backend.Controllers
         [HttpGet("home")]
         public IActionResult LoadAllTopics(int? page, int? amount)
         {
+            if (page < 1 || amount < 1) return BadRequest("Page number or amount of pages cannot be null. Please provide valid information.");
+
             IEnumerable<TopicModelID> topicModelIDs = (page.HasValue && amount.HasValue)
                 ? TopicsService.SelectPage(page.Value, amount.Value, Program.Globals.db.Connection)
                 : TopicsService.SelectAll(Backend.Program.Globals.db.Connection);
@@ -20,7 +24,7 @@ namespace Backend.Controllers
             return Ok(topicModelIDs);
         }
 
-        [HttpGet("createTopic")]
+        [HttpPost("createTopic")]
         public IActionResult CreateTopic([FromBody] TopicModelID topicModelID)
         {
             if (topicModelID == null)
@@ -37,18 +41,67 @@ namespace Backend.Controllers
         }
 
         [HttpGet("getReplies")]
-        public IActionResult GetReplies()
+        public IActionResult GetReplies(uint topicID)
         {
+            IEnumerable<ParentReplyModelID> replies = TopicsService.SelectParentRepliesByTopic(topicID, Globals.db.Connection);
 
-            return Ok();
+            if (replies == null)
+            {
+                return StatusCode(500, "A database error occurred while fetching the replies.");
+            }
+            else
+            {
+                //client can add it to its local model and we will load other replies when user clicks on the reply to reply (for each of them separately)
+                return Ok(replies);
+            }
         }
 
-        [HttpGet("createReply")]
-        public IActionResult createReply()
+        [HttpGet("getReplyToReply")]
+        public IActionResult GetReplyToReply(uint parentReplyID)
         {
             
-            return Ok();
+            IEnumerable<ChildReplyModelID> replies = RepliesService.SelectChildRepliesByParent(parentReplyID, Globals.db.Connection);
+
+            if (replies == null)
+            {
+                return StatusCode(500, "A database error occurred while fetching the replies.");
+            }
+            else
+            {
+                //client can add it to its local model and we will load other replies when user clicks on the reply to reply (for each of them separately)
+                return Ok(replies);
+            }
         }
+
+       
+
+        [HttpPost("createReply")]
+        public IActionResult createReply([FromBody] ParentReplyModelID reply)
+        {
+            if (RepliesService.AddParent(reply, Globals.db.Connection) != null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500, "A database error occurred while creating the reply.");
+            }
+        }
+
+        [HttpPost("createReplyToReply")]
+        public IActionResult createReplyToReply([FromBody] ChildReplyModelID reply)
+        {
+            if(RepliesService.AddChild(reply, Globals.db.Connection) != null)
+            {
+                return Ok();
+            }
+            else
+            {
+                return StatusCode(500, "A database error occurred while creating the reply.");
+            }
+        }
+
+
 
 
 

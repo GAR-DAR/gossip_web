@@ -10,7 +10,7 @@ namespace Backend.Controllers
     public class UserController : ControllerBase
     {
         [HttpPost("login/username")]
-        public IActionResult UsernameLogin(String username, String password)
+        public IActionResult UsernameLogin(string username, string password)
         {
 
             UserModelID userModelID = UsersService.SignIn(null, username, password, Backend.Program.Globals.db.Connection);
@@ -24,7 +24,7 @@ namespace Backend.Controllers
         }
 
         [HttpPost("login/email")]
-        public IActionResult EmailLogin(String email, String password)
+        public IActionResult EmailLogin(string email, string password)
         {
             UserModelID userModelID = UsersService.SignIn(email, null, password, Backend.Program.Globals.db.Connection);
 
@@ -37,7 +37,7 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register/first")]
-        public IActionResult RegisterFirst(String username, String email, String password)
+        public IActionResult RegisterFirst(string username, string email, string password)
         {
 
             if (UsersService.Exists("email", email, Backend.Program.Globals.db.Connection))
@@ -49,33 +49,30 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register/second")]
-        public IActionResult RegisterSecond([FromBody] UserModel userModel)
+        public IActionResult RegisterSecond([FromBody] UserModelID userModelID)
         {
-            if (userModel == null)
+            if (userModelID == null)
             {
                 return BadRequest("Invalid data.");
             }
 
-            UserModelID userModelID = new(userModel);
             userModelID = UsersService.SignUp(userModelID, Backend.Program.Globals.db.Connection);
-            
-            if(userModelID == null)
+
+            if (userModelID == null)
             {
                 return BadRequest("Couldn't insert to DB. Check if request is valid.");
             }
-            
+
             return Ok();
         }
 
         [HttpPost("edit/userinfo")]
-        public IActionResult EditUserInfo([FromBody] UserModel ChangedUserModel)
+        public IActionResult EditUserInfo([FromBody] UserModelID ChangedUserModelID)
         {
-            if(ChangedUserModel == null)
+            if (ChangedUserModelID == null)
             {
                 return BadRequest("Invalid data.");
             }
-
-            UserModelID ChangedUserModelID = new(ChangedUserModel);
 
             if (!UsersService.ChangeInfo(ChangedUserModelID, Backend.Program.Globals.db.Connection))
             {
@@ -86,14 +83,14 @@ namespace Backend.Controllers
         }
 
         [HttpPost("edit/userphoto")]
-        public IActionResult EditUserPhoto([FromBody] UserModel ChangedUserModel)
+        public IActionResult EditUserPhoto(uint userID, string photo)
         {
-            if (ChangedUserModel == null)
+            if (userID == null)
             {
                 return BadRequest("Invalid data.");
             }
 
-            if (!UsersService.ChangePhoto(ChangedUserModel.ID, ChangedUserModel.Photo, Backend.Program.Globals.db.Connection))
+            if (!UsersService.ChangePhoto(userID, photo, Backend.Program.Globals.db.Connection))
             {
                 return BadRequest("Couldn't update photo in DB. Check if user exist or request is valid.");
             }
@@ -102,20 +99,20 @@ namespace Backend.Controllers
         }
 
         [HttpPost("edit/userpassword")]
-        public IActionResult EditUserPassword([FromBody] UserModel ChangedUserModel)
+        public IActionResult EditUserPassword(uint userID, string password)
         {
-            if (ChangedUserModel == null)
+            if (userID == null)
             {
                 return BadRequest("Invalid data");
             }
 
-            if (!UsersService.ChangePassword(ChangedUserModel.ID, ChangedUserModel.Password, Backend.Program.Globals.db.Connection))
+            if (!UsersService.ChangePassword(userID, password, Backend.Program.Globals.db.Connection))
             {
                 return BadRequest("Couldn't update password in DB. Check if user exist or request is valid.");
             }
 
             return Ok();
         }
-        
+
     }
 }

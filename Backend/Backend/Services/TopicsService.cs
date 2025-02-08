@@ -173,6 +173,7 @@ public static class TopicsService
         return topic;
     }
 
+
     public static List<uint> SelectParentReplyIdsByTopic(uint topicId, MySqlConnection conn)
     {
         List<uint> replyIds = [];
@@ -260,6 +261,7 @@ public static class TopicsService
 
         return parentReplies;
     }
+
 
     public static List<string> SelectTagsByTopic(uint topicId, MySqlConnection conn)
     {

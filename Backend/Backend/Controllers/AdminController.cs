@@ -7,11 +7,10 @@ using System.Numerics;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("Ban")]//sounds weird, meybe we should do it some other way? Like from some gossip.com/user&id=1/ban or something?
-    //But List of banned users maybe should be in gossip.com/ban/list or something in other hand?
-    public class BanController : Controller
+    [Route("Admin")]
+    public class AdminController : Controller
     {
-        [HttpGet("list")]
+        [HttpGet("banned/list")]
         public IActionResult GetList()
         {
             List<UserModelID> bannedUsers = UsersService.SelectBannedUsers(Backend.Program.Globals.db.Connection);
