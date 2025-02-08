@@ -17,7 +17,7 @@ namespace Backend.Controllers
             return Ok(bannedUsers);
         }
 
-        [HttpPost("ban/user")]
+        [HttpPost("ban")]
         public IActionResult BanUser(uint userID)
         {
             if (userID == 0) return BadRequest("Message cannot be empty. Please provide a valid message.");
@@ -29,7 +29,7 @@ namespace Backend.Controllers
             return Ok();
         }
 
-        [HttpPost("unban/user")]
+        [HttpPost("unban")]
         public IActionResult UnbanUser(uint userID)
         {
             if (userID == 0) return BadRequest("Message cannot be empty. Please provide a valid message.");
