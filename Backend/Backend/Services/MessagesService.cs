@@ -115,4 +115,42 @@ public static class MessagesService
 
         return messages;
     }
+
+    private static List<uint> SelectLastMessageIdsForUser(uint userId, MySqlConnection conn)
+    {
+        List<uint> messageIds = [],
+            userChatIds = ChatsService.SelectChatIdsByUser(userId, conn);
+
+        string selectLastMessageQuery =
+            """
+            SELECT id
+            FROM messages
+            WHERE chat_id = @chat_id
+            ORDER BY sent_at DESC
+            LIMIT 1
+            """;
+
+        foreach (var chatId in userChatIds)
+        {
+            using var selectLastMessageCommand = new MySqlCommand(selectLastMessageQuery, conn);
+            selectLastMessageCommand.Parameters.AddWithValue("@chat_id", chatId);
+
+            messageIds.Add(Convert.ToUInt32(selectLastMessageCommand.ExecuteScalar()));
+        }
+
+        return messageIds;
+    }
+
+    public static List<MessageModelID> SelectLastMessagesForUser(uint userId, MySqlConnection conn)
+    {
+        List<uint> messageIds = SelectLastMessageIdsForUser(userId, conn);
+        List<MessageModelID> lastMessages = [];
+
+        foreach (var messageId in messageIds)
+        {
+            lastMessages.Add(SelectById(messageId, conn));
+        }
+
+        return lastMessages;
+    }
 }
