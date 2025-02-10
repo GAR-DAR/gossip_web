@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\Backend\\Backend.csproj": {}
+    "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\IdentityApi\\IdentityApi.csproj": {}
   },
   "projects": {
-    "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\Backend\\Backend.csproj": {
+    "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\IdentityApi\\IdentityApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\Backend\\Backend.csproj",
-        "projectName": "Backend",
-        "projectPath": "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\IdentityApi\\IdentityApi.csproj",
+        "projectName": "IdentityApi",
+        "projectPath": "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\IdentityApi\\IdentityApi.csproj",
         "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\Backend\\obj\\",
+        "outputPath": "D:\\UINIVERSITY\\Gossip\\gossip_jwt\\Backend\\IdentityApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -54,21 +54,9 @@
               "target": "Package",
               "version": "[8.0.1, )"
             },
-            "Microsoft.AspNetCore.SignalR.Common": {
-              "target": "Package",
-              "version": "[9.0.1, )"
-            },
-            "MySql.Data": {
-              "target": "Package",
-              "version": "[9.2.0, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[13.0.3, )"
-            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[7.2.0, )"
+              "version": "[6.6.2, )"
             }
           },
           "imports": [
