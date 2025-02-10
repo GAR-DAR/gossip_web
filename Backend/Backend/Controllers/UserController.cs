@@ -1,15 +1,18 @@
 ﻿using System.Net;
+using Backend.Infrastructure;
 using Backend.Models.ModelsFull;
 using Backend.Models.ModelsID;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace Backend.Controllers
 {
     [ApiController]
     [Route("User")]
-    public class UserController : ControllerBase
+    public class UserController : ControllerBase 
     {
+       
         [HttpPost("login/username")]
         public IActionResult UsernameLogin(string username, string password)
         {
@@ -34,7 +37,9 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            return Ok(userModelID);
+            // return Ok(userModelID);
+            
+            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password) });
         }
 
         [HttpPost("register/first")]
