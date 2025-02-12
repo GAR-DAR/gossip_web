@@ -65,7 +65,7 @@ CREATE TABLE `chats_to_users` (
 
 LOCK TABLES `chats_to_users` WRITE;
 /*!40000 ALTER TABLE `chats_to_users` DISABLE KEYS */;
-INSERT INTO `chats_to_users` VALUES (1,1),(1,2),(1,3),(1,5),(1,6),(1,7),(1,8),(1,9),(2,5),(2,8),(3,7),(3,10),(2,5);
+INSERT INTO `chats_to_users` VALUES (1,1),(1,2),(1,3),(1,5),(1,6),(1,7),(1,8),(1,9),(2,5),(2,8),(3,7),(3,10),(2,7);
 /*!40000 ALTER TABLE `chats_to_users` ENABLE KEYS */;
 UNLOCK TABLES;
 

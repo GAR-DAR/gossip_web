@@ -260,6 +260,46 @@ public static class ChatsService
 
         return messages;
     }
+
+    private static List<uint> SelectMessagePageIds(uint chatId, int page, int amount, MySqlConnection conn)
+    {
+        List<uint> messageIds = [];
+
+        string selectMessagePageQuery =
+            """
+            SELECT id
+            FROM messages
+            WHERE is_deleted = FALSE
+            AND chat_id = @chat_id
+            LIMIT @amount OFFSET @previous_amount
+            """;
+
+        using var selectCommand = new MySqlCommand(selectMessagePageQuery, conn);
+        selectCommand.Parameters.AddWithValue("@chat_id", chatId);
+        selectCommand.Parameters.AddWithValue("@amount", amount);
+        selectCommand.Parameters.AddWithValue("@previous_amount", (page - 1) * amount);
+
+        using var reader = selectCommand.ExecuteReader();
+        while (reader.Read())
+        {
+            messageIds.Add(reader.GetUInt32("id"));
+        }
+
+        return messageIds;
+    }
+
+    public static List<MessageModelID> SelectMessagePage(uint chatId, int page, int amount, MySqlConnection conn)
+    {
+        List<MessageModelID> messages = [];
+        List<uint> messageIds = SelectMessagePageIds(chatId, page, amount, conn);
+
+        foreach (var messageId in messageIds)
+        {
+            messages.Add(MessagesService.SelectById(messageId, conn));
+        }
+
+        return messages;
+    }
     
     public static List<uint> SelectChatIdsByUser(uint userId, MySqlConnection conn)
     {
