@@ -1,0 +1,4 @@
+<div class="container" [ngClass]="{'incoming': message.isIncoming, 'outgoing': !message.isIncoming}">
+    <span class="message-text">{{ message.text }}</span>
+    <span class="message-time">{{ message.createdAt | date:'shortTime' }}</span>
+</div>

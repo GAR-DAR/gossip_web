@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.input-field {
+    padding: 15px;
+    width: 85%;
+    border-radius: 20px;
+    background-color: #254874;
+    border: 0px;
+    color: white;
+    font-size: 20px;
+    margin-top: 10px;
+}
+
+.input-field:focus {
+    outline: none;
+    border: 0px;
+}
+
+.send-button {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 0px;
+    background-color: #6393c9;
+    background-image: url("/assets/images/send.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center right 13px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.send-button:hover {
+    background-color: #254874;
+    background-image: url("/assets/images/sendDanube.png");
+}
+
+.send-button-icon {
+    height: 30px;
+}

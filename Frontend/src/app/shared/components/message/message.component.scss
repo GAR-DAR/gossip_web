@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    display: inline-flex;
+    min-width: 10%;
+    max-width: 40%;
+    word-wrap: break-word;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.message-text {
+    display: block;
+    margin-bottom: 5px;
+    padding-right: 50px;
+    white-space: pre-wrap;
+}
+
+.message-time {
+    position: absolute;
+    bottom: 5px;
+    right: 10px;
+    font-size: 12px;
+}
+
+.incoming {
+    background-color: #01467c;
+    color: white;
+    align-self: flex-start;
+}
+
+.outgoing {
+    background-color: #6393c9;
+    color: black;
+    align-self: flex-end;
+    margin-left: auto;
+}
