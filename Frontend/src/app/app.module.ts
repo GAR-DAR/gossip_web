@@ -11,6 +11,10 @@ import { ChatTopbarComponent } from './navigation/chat/opened-chat/chat-topbar/c
 import { InputComponent } from './navigation/chat/opened-chat/input/input.component';
 import { MessagesFieldComponent } from './navigation/chat/opened-chat/messages-field/messages-field.component';
 import { MessageComponent } from './shared/components/message/message.component';
+import { AuthContentComponent } from './auth/auth-content/auth-content/auth-content.component';
+import { AuthDialogComponent } from './auth/auth-dialog/auth-dialog/auth-dialog.component';
+import { RegisterContentStep1Component } from './auth/register-content-step1/register-content-step1/register-content-step1.component';
+import { RegisterContentStep2Component } from './auth/register-content-step2/register-content-step2/register-content-step2.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +27,10 @@ import { MessageComponent } from './shared/components/message/message.component'
     InputComponent,
     MessagesFieldComponent,
     MessageComponent,
+    AuthContentComponent,
+    AuthDialogComponent,
+    RegisterContentStep1Component,
+    RegisterContentStep2Component,
   ],
   imports: [
     BrowserModule,

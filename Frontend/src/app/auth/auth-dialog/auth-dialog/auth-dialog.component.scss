@@ -1,0 +1,42 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px; /* Ширина прямокутника */
+    height: 500px; /* Висота прямокутника */
+    border: 2px solid #6493c9; /* Бордер */
+    border-radius: 25px; /* Заокруглення */
+    background-color: #0c2a5c; /* Фон */
+    padding: 20px; /* Відступи всередині */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тінь */
+  }
+  
+  .top-right-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px; /* Відступи всередині кнопки */
+    background: transparent; /* Прозорий фон кнопки */
+    border: none; /* Без бордера */
+    cursor: pointer; /* Курсор у вигляді руки */
+    width: 50px; /* Ширина кнопки */
+    height: 50px; /* Висота кнопки */
+  }
+  
+  .icon-image {
+    width: 30px; /* Ширина іконки */
+    height: 30px; /* Висота іконки */
+  }
+  
+  .hover-icon {
+    display: none;
+  }
+  
+  .top-right-button:hover .normal-icon {
+    display: none;
+  }
+  
+  .top-right-button:hover .hover-icon {
+    display: block;
+  }
