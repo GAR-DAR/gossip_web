@@ -39,7 +39,7 @@ namespace Backend.Controllers
 
             // return Ok(userModelID);
             
-            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password) });
+            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password, userModelID.Role) });
         }
 
         [HttpPost("register/first")]

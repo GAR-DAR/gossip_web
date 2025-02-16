@@ -3,11 +3,13 @@ using Backend.Models.ModelsFull;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Numerics;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers
 {
     [ApiController]
     [Route("Admin")]
+    [Authorize(Policy = "ModeratorPolicy")]
     public class AdminController : Controller
     {
         [HttpGet("banned/list")]

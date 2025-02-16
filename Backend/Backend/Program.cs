@@ -36,7 +36,11 @@ namespace Backend {
             //builder.Services.AddSingleton<PasswordHasher>();
             builder.Services.AddSingleton<TokenProvider>();
 
-            builder.Services.AddAuthorization();
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ModeratorPolicy", policy => policy.RequireRole("Moderator"));
+            });
+
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(o =>
             {
