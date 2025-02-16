@@ -13,7 +13,7 @@ public class DatabaseService : IDisposable
 
     public DatabaseService()
     {
-        const string connectionStr = $"Server={Server};Database={Database};User ID={User};Password={Password}";
+        const string connectionStr = $"Server={Server};Database={Database};User ID={User};Password={Password};Pooling=true;";
 
         _connection = new MySqlConnection(connectionStr);
         _connection.Open();

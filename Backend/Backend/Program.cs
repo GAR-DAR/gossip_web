@@ -4,7 +4,8 @@ using Backend.Hubs;
 using System;
 using Microsoft.AspNetCore.SignalR;
 
-namespace Backend {
+namespace Backend
+{
 
     public class Program
     {
@@ -26,17 +27,12 @@ namespace Backend {
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
-            var allowedOrigins = builder.Configuration.GetValue<string>("allowedOrigins")!.Split(",");
-
             builder.Services.AddCors(options =>
             {
-                options.AddDefaultPolicy(
-                    policy =>
-                    {
-                        policy.WithOrigins(allowedOrigins)
-                            .AllowAnyHeader()
-                            .AllowAnyMethod();
-                    });
+                options.AddPolicy("AllowAngularApp",
+                    policy => policy.WithOrigins("http://localhost:4200")
+                                    .AllowAnyMethod()
+                                    .AllowAnyHeader());
             });
 
             var app = builder.Build();
@@ -47,6 +43,8 @@ namespace Backend {
                 app.UseSwagger();
                 app.UseSwaggerUI();
             }
+
+            app.UseCors("AllowAngularApp");
 
             app.UseHttpsRedirection();
 

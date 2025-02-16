@@ -18,6 +18,9 @@ import { RegisterContentStep2Component } from './auth/register-content-step2/reg
 import { AddChatComponent } from './navigation/chat/add-chat/add-chat.component';
 import { AddChatUserComponent } from './navigation/chat/add-chat/add-chat-user/add-chat-user.component';
 import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
+import { TopicComponent } from './shared/components/topic/topic.component';
+import { HomeComponent } from './navigation/home/home.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -37,12 +40,14 @@ import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
     AddChatComponent,
     AddChatUserComponent,
     AddTopicComponent,
+    TopicComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [ provideHttpClient() ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

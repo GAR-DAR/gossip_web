@@ -7,13 +7,27 @@ using Microsoft.AspNetCore.Mvc;
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("User")]
+    [Route("Users")]
     public class UserController : ControllerBase
     {
+        [HttpPost("getusers")]
+        public IActionResult GetUsersByIds([FromBody] uint[] ids)
+        {
+            IEnumerable<UserModelID> users = UsersService.SelectByIds(ids, Backend.Program.Globals.db.Connection);
+            if (users == null)
+            {
+                return NotFound();
+            }
+
+            Console.WriteLine(users.ToString());
+
+            return Ok(users);
+        }
+
+
         [HttpPost("login/username")]
         public IActionResult UsernameLogin(string username, string password)
         {
-
             UserModelID userModelID = UsersService.SignIn(null, username, password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
