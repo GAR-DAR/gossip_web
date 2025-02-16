@@ -1,63 +1,70 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
-
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
-/node_modules
-npm-debug.log
-yarn-error.log
-
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
-
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-
-# System files
+# Global ignores for all environments
+node_modules/
+dist/
 .DS_Store
 Thumbs.db
 
-.vs/
-/Backend/Backend/obj
-/Backend/Backend/bin
-Backend/Backend/obj/Backend.csproj.nuget.dgspec.json
+# Angular-specific ignores
+Frontend/node_modules/
+Frontend/dist/
+Frontend/.angular/
+Frontend/.env
+Frontend/.env.*
 
-Backend/Backend/obj/project.assets.json
-Backend/Backend/obj/project.nuget.cache
-Backend/Backend/obj/Debug/net8.0/Backend.AssemblyInfo.cs
-Backend/Backend/obj/Debug/net8.0/Backend.AssemblyInfoInputs.cache
-Backend/Backend/obj/Debug/net8.0/Backend.assets.cache
-Backend/Backend/obj/Debug/net8.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
-/Backend/Backend/obj
-Backend/Backend/obj/project.nuget.cache
-Backend/Backend/obj/project.assets.json
-Backend/Backend/obj/Debug/net8.0/Backend.assets.cache
-Backend/Backend/obj/Debug/net8.0/Backend.GeneratedMSBuildEditorConfig.editorconfig
-Backend/Backend/obj/Debug/net8.0/Backend.AssemblyInfoInputs.cache
-Backend/Backend/obj/Backend.csproj.nuget.dgspec.json
-Backend/Backend/obj/Backend.csproj.nuget.g.props
-Backend/Backend/obj/Debug/net8.0/Backend.AssemblyInfo.cs
+# ASP.NET Core-specific ignores
+# Ignore AssemblyInfo and NuGet cache files
+backend/**/AssemblyInfo.cs
+backend/**/*.csproj.nuget.dgspec.json
+backend/**/*.csproj.nuget.g.props
+backend/**/*.csproj.nuget.g.targets
+backend/**/project.nuget.cache
+backend/**/obj/
+backend/**/bin/
+
+Backend/bin/
+Backend/obj/
+Backend/*.db
+Backend/*.log
+Backend/appsettings.Development.json
+Backend/appsettings.Local.json
+Backend/appsettings.*.json.user
+
+# Visual Studio-specific ignores
+.vscode/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+**/.vs/
+**/.vscode/
+.vs/
+*.csproj.user
+
+# JetBrains Rider-specific ignores
+.idea/
+.idea/**/workspace.xml
+.idea/**/tasks.xml
+.idea/**/usage.statistics.xml
+.idea/**/dictionaries/
+.idea/**/shelf/
+.idea/**/vcs.xml
+.idea/**/jsLibraryMappings.xml
+
+# JetBrains WebStorm-specific ignores
+.idea/
+*.iml
+.idea/modules.xml
+.idea/workspace.xml
+.idea/misc.xml
+.idea/dictionaries/
+.idea/shelf/
+
+# System-specific files
+.DS_Store
+Thumbs.db
+
+# Other temporary files
+**/logs/
+**/temp/
+*.log
+*.tmp
