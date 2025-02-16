@@ -16,7 +16,6 @@ namespace Backend.Controllers
         [HttpPost("login/username")]
         public IActionResult UsernameLogin(string username, string password)
         {
-
             UserModelID userModelID = UsersService.SignIn(null, username, password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
@@ -24,7 +23,9 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            return Ok(userModelID);
+            //return Ok(userModelID);
+
+            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Username, userModelID.Password) });
         }
 
         [HttpPost("login/email")]
@@ -37,8 +38,13 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
+            if (!BCrypt.Net.BCrypt.Verify(password, userModelID.Password))
+            {
+                return Unauthorized("Wrong password!");
+            }
+
             // return Ok(userModelID);
-            
+
             return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password) });
         }
 
@@ -55,12 +61,16 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register/second")]
-        public IActionResult RegisterSecond([FromBody] UserModelID userModelID)
+        public IActionResult RegisterSecond([FromBody] UserModel userModel)
         {
-            if (userModelID == null)
+            if (userModel == null)
             {
                 return BadRequest("Invalid data.");
             }
+
+            userModel.Password = BCrypt.Net.BCrypt.HashPassword(userModel.Password);
+
+            UserModelID userModelID = new(userModel);
 
             userModelID = UsersService.SignUp(userModelID, Backend.Program.Globals.db.Connection);
 
