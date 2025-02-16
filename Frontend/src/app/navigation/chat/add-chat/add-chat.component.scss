@@ -1,0 +1,111 @@
+.container {
+    height: 550px;
+    width: 350px;
+    background-color: #0c2a5c;
+    border-radius: 20px;
+    border: 2px solid #6393c9;
+}
+
+.add-members-text {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 30px;
+
+}
+
+.first-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px;
+}
+
+.close-button {
+    height: 30px;
+}
+
+.close-button:hover {
+    cursor: pointer;
+    content: url('/assets/images/closeDanube.png');
+}
+
+.second-row {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    height: 9%;
+    background-color: #274674;
+    border-radius: 20px;
+    box-sizing: border-box;
+    transition: border 0.3s;
+    border: 1px solid transparent;
+    margin: 0 10px
+}
+
+.search-icon {
+    margin-left: 5px;
+    height: 40px;
+}
+
+.search-input {
+    background-color: transparent;
+    border: 0;
+    width: 85%;
+    height: 100%;
+    color: white;
+    font-size: 19px;
+}
+
+.search-input::placeholder {
+    color: lightgray;
+}
+
+.search-input:focus {
+    outline: none;
+}
+
+.second-row:focus-within {
+    border: 1px solid #6393c9;
+}
+
+hr {
+    margin: 0;
+    margin-top: 15px;
+    border: #6393c9 1px solid;
+}
+
+.third-row {
+    height: 350px;
+    overflow-y: auto;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+.fourth-row {
+    display: flex;
+    justify-content: flex-end;
+    margin: 10px;
+}
+
+.create-button {
+    background-color: #6393c9;
+    border: 0;
+    padding: 7px 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.create-button:hover {
+    background-color: #274674;
+}
+

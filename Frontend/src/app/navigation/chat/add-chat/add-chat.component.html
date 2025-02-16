@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="first-row">
+        <span class="add-members-text">Add Members</span>
+        <img src="assets/images/close.png" class="close-button">
+    </div>
+
+    <div class="second-row">
+        <img src="assets/images/search.png" class="search-icon">
+        <input type="text" class="search-input" placeholder="Search for members">
+    </div>
+
+    <hr>
+
+    <div class="third-row">
+        <ul>
+            <li class="add-chat-user" *ngFor="let user of users">
+                <app-add-chat-user></app-add-chat-user>
+            </li>
+        </ul>
+    </div>
+
+
+    <div class="fourth-row">
+        <button class="create-button">Create</button>
+    </div>
+</div>
