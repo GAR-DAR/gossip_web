@@ -1,0 +1,100 @@
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.first-row {
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.back-button {
+    background-color: transparent;
+    border: 0;
+    background-image: url('/assets/images/back.png');
+    height: 40px;
+    width: 40px;
+    background-size: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+}
+
+.back-button:hover {
+    cursor: pointer;
+    background-image: url('/assets/images/backDanube.png');
+}
+
+.create-topic-text {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.input-area {
+    margin-left: 120px;
+    margin-top: 20px;
+}
+
+.generic-row {
+    margin-bottom: 10px;
+}
+
+.generic-label {
+    color: white;
+    display: block;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 18px;
+    margin-left: 10px;
+    margin-bottom: 5px;
+}
+
+.generic-input {
+    background-color: rgba(6, 11, 39, 0.5);
+    border: 2px solid #294473;
+    border-radius: 10px;
+    padding: 10px;
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.generic-input::placeholder {
+    color: lightgray;
+}
+
+.generic-input:focus {
+    outline: none;
+    border: 2px solid #afcef0;
+}
+
+.title-input {
+    width: 70%;
+}
+
+.tags-input {
+    width: 25%;
+}
+
+.content-input {
+    width: 90%;
+    min-height: 200px;
+    resize: none;
+    overflow-y: hidden;
+}
+
+.create-button {
+    background-color: #6393c9;
+    border: 0;
+    padding: 7px 20px;
+    border-radius: 15px;
+    color: white;
+    font-size: 17px;
+    cursor: pointer;
+    width: 6%;
+    margin-left: 86%;
+}
+
+.create-button:hover {
+    background-color: #294473;
+}

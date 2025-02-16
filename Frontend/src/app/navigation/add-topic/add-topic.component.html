@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="first-row">
+        <button class="back-button"></button>
+        <span class="create-topic-text">Create a topic</span>
+    </div>
+
+    <div class="input-area">
+        <div class="generic-row">
+            <span class="generic-label">Title</span>
+            <input class="generic-input title-input" type="text" placeholder="Enter title here">
+        </div>
+
+        <div class="generic-row">
+            <span class="generic-label">Tags</span>
+            <input class="generic-input tags-input" type="text">
+        </div>
+
+        <div class="generic-row">
+            <span class="generic-label">Content</span>
+            <textarea class="generic-input content-input" type="text" (input)="autoResize($event)"></textarea>
+        </div>
+    </div>
+
+    <button class="create-button">Create</button>
+</div>
+    
