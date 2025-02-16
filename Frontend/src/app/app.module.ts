@@ -15,6 +15,8 @@ import { AuthContentComponent } from './auth/auth-content/auth-content/auth-cont
 import { AuthDialogComponent } from './auth/auth-dialog/auth-dialog/auth-dialog.component';
 import { RegisterContentStep1Component } from './auth/register-content-step1/register-content-step1/register-content-step1.component';
 import { RegisterContentStep2Component } from './auth/register-content-step2/register-content-step2/register-content-step2.component';
+import { AddChatComponent } from './navigation/chat/add-chat/add-chat.component';
+import { AddChatUserComponent } from './navigation/chat/add-chat/add-chat-user/add-chat-user.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +33,8 @@ import { RegisterContentStep2Component } from './auth/register-content-step2/reg
     AuthDialogComponent,
     RegisterContentStep1Component,
     RegisterContentStep2Component,
+    AddChatComponent,
+    AddChatUserComponent,
   ],
   imports: [
     BrowserModule,
