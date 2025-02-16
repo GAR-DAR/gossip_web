@@ -78,16 +78,11 @@ namespace Backend {
             }
 
             app.UseHttpsRedirection();
-
             app.UseCors();
-
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.MapHub<ChatHub>("/chat");
-
             app.MapControllers();
-
             app.Run();
 
         }

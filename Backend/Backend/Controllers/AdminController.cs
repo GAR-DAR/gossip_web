@@ -7,6 +7,11 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers
 {
+    /* 
+     * in ts will be called with 'Authorization': `Bearer ${token}`
+     *  in banUser(...)
+     */
+
     [ApiController]
     [Route("Admin")]
     [Authorize(Policy = "ModeratorPolicy")]

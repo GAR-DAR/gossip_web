@@ -1,4 +1,6 @@
-﻿using System.Net;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Security.Claims;
 using Backend.Infrastructure;
 using Backend.Models.ModelsFull;
 using Backend.Models.ModelsID;
@@ -24,7 +26,7 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            return Ok(userModelID);
+            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password, userModelID.Role) });
         }
 
         [HttpPost("login/email")]
@@ -37,10 +39,10 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            // return Ok(userModelID);
-            
             return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password, userModelID.Role) });
         }
+
+        
 
         [HttpPost("register/first")]
         public IActionResult RegisterFirst(string username, string email, string password)
@@ -71,6 +73,33 @@ namespace Backend.Controllers
 
             return Ok();
         }
+
+        [HttpPost("initToken")]
+        public IActionResult InitToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (jwtToken == null)
+                return null;
+
+            var email = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.Email).Value;
+            var role = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.Role).Value;
+
+            // Assuming you have a method to get the user by email
+            var user = UsersService.SelectByEmail(email, Backend.Program.Globals.db.Connection);
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(user);
+            }
+           
+        }
+
 
         [HttpPost("edit/userinfo")]
         public IActionResult EditUserInfo([FromBody] UserModelID ChangedUserModelID)
