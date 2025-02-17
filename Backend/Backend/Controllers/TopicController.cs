@@ -21,6 +21,7 @@ namespace Backend.Controllers
                 ? TopicsService.SelectPage(page.Value, amount.Value, Program.Globals.db.Connection)
                 : TopicsService.SelectAll(Backend.Program.Globals.db.Connection);
 
+
             return Ok(topicModelIDs);
         }
 

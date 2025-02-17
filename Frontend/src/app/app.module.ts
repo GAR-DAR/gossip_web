@@ -23,6 +23,9 @@ import { TopbarUnauthComponent } from './core/topbar-unauth/topbar-unauth.compon
 import { TopbarSearchComponent } from './core/topbar-search/topbar-search.component';
 import { TopbarComponent } from './core/topbar/topbar.component';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
+import { TopicComponent } from './shared/components/topic/topic.component';
+import { HomeComponent } from './navigation/home/home.component';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -47,12 +50,14 @@ import { SidebarComponent } from './core/sidebar/sidebar.component';
     TopbarSearchComponent,
     TopbarComponent,
     SidebarComponent,
+    TopicComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
-  providers: [],
+  providers: [ provideHttpClient() ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

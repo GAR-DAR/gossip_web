@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\York\\Source\\Repos\\gossip_web\\Backend\\Backend\\Backend.csproj": {}
+    "C:\\Users\\stelm\\OneDrive\\Документы\\GitHub\\gossip_web\\Backend\\Backend\\Backend.csproj": {}
   },
   "projects": {
-    "C:\\Users\\York\\Source\\Repos\\gossip_web\\Backend\\Backend\\Backend.csproj": {
+    "C:\\Users\\stelm\\OneDrive\\Документы\\GitHub\\gossip_web\\Backend\\Backend\\Backend.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\York\\Source\\Repos\\gossip_web\\Backend\\Backend\\Backend.csproj",
+        "projectUniqueName": "C:\\Users\\stelm\\OneDrive\\Документы\\GitHub\\gossip_web\\Backend\\Backend\\Backend.csproj",
         "projectName": "Backend",
-        "projectPath": "C:\\Users\\York\\Source\\Repos\\gossip_web\\Backend\\Backend\\Backend.csproj",
-        "packagesPath": "C:\\Users\\York\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\York\\Source\\Repos\\gossip_web\\Backend\\Backend\\obj\\",
+        "projectPath": "C:\\Users\\stelm\\OneDrive\\Документы\\GitHub\\gossip_web\\Backend\\Backend\\Backend.csproj",
+        "packagesPath": "C:\\Users\\stelm\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\stelm\\OneDrive\\Документы\\GitHub\\gossip_web\\Backend\\Backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\York\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\stelm\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -42,7 +42,7 @@
         "restoreAuditProperties": {
           "enableAudit": "true",
           "auditLevel": "low",
-          "auditMode": "direct"
+          "auditMode": "all"
         },
         "SdkAnalysisLevel": "9.0.100"
       },
@@ -86,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

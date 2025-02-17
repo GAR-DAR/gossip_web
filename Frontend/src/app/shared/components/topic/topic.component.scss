@@ -1,0 +1,49 @@
+.container {
+    margin: 20px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    background-color: rgba(99, 147, 201, 0.4);
+    border-radius: 20px;
+    border: 2px solid #6393c9;
+}
+
+.info-row {
+    display: flex;
+    align-items: center;
+}
+
+.info {
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.profile-image {
+    height: 60px;
+    border-radius: 50%;
+}
+
+.username {
+    font-size: 17px;
+    font-weight: bold;
+}
+
+.date {
+    font-size: 15px;
+}
+
+.title {
+    margin: 10px;
+    font-weight: bold;
+}
+
+.content {
+    margin: 10px;
+}
+
+.text {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: white;
+}
+
