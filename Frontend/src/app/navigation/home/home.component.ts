@@ -5,6 +5,7 @@ import { ParentReply } from '../../shared/models/parentReply';
 import { TopicsService } from '../../services/topics.service';
 import { TopicModelId } from '../../shared/models/idModels/topicModelId/topicModelId';
 import { UsersService } from '../../services/users.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -18,7 +19,8 @@ export class HomeComponent implements OnInit {
 
   
   constructor(private topicsService: TopicsService, 
-    private usersService: UsersService) {}
+    private usersService: UsersService,
+    private router: Router) {}
 
     ngOnInit(): void {
       this.topicsService.getTopics().subscribe(topics => {
@@ -40,4 +42,8 @@ export class HomeComponent implements OnInit {
         });
       });
     }
+
+    navigateToCreateTopic() : void {
+      this.router.navigate(['/topics/create']);
+    } 
 }

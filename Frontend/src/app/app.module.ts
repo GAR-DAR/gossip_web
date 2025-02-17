@@ -26,6 +26,7 @@ import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { TopicComponent } from './shared/components/topic/topic.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { provideHttpClient } from '@angular/common/http';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import { provideHttpClient } from '@angular/common/http';
     SidebarComponent,
     TopicComponent,
     HomeComponent,
+    TestComponent,
   ],
   imports: [
     BrowserModule,

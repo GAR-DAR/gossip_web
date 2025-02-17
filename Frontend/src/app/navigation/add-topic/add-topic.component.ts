@@ -14,4 +14,8 @@ export class AddTopicComponent {
     textarea.style.height = 'auto';
     textarea.style.height = `${textarea.scrollHeight}px`;
   } 
+
+  navigateBack() : void {
+    window.history.back();
+  }
 }

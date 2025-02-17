@@ -1,0 +1,30 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    position: relative;
+}
+
+.floating-button {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background-color: #002552;
+    color: white;
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s;
+}
+
+.floating-button:hover {
+    background-color: #507bb3;
+}

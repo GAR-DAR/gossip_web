@@ -3,11 +3,12 @@ html, body {
     margin: 0;
     height: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
     width: 12px;
-    background-color: #01467c;
+    background-color: #002552;
 }
 
 ::-webkit-scrollbar-track {

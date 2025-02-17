@@ -1,14 +1,34 @@
+/* Для контейнера */
 .container {
     display: flex;
+    min-height: 100vh;
     flex-direction: column;
-    height: 100vh;
+}
+
+app-topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .main-content {
     display: flex;
-    flex: 1;
+    margin-top: 60px;
+    margin-left: 270px;
+    height: calc(100vh - 60px);
 }
 
-router-outlet {
-    flex: 1; /* Займає весь доступний простір, крім сайдбара */
+app-sidebar {
+    position: fixed;
+    left: 0;
+    width: 270px;
+    height: calc(100vh - 60px);
+    color: white;
 }
+
+.outlet {
+    width: 100%;
+}
+
