@@ -3,6 +3,11 @@ using Backend.Services;
 using Backend.Hubs;
 using System;
 using Microsoft.AspNetCore.SignalR;
+using Backend.Infrastructure;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Backend.Extentions;
 
 namespace Backend {
 
@@ -10,8 +15,9 @@ namespace Backend {
     {
         public static class Globals
         {
+            private static readonly IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             public static DatabaseService db = new DatabaseService();
-            //public static IHubContext<ChatHub> Clients { get; set; }
+            public static readonly TokenProvider tokenProvider = new TokenProvider(configuration);
         }
 
         static void Main(string[] args)
@@ -24,7 +30,26 @@ namespace Backend {
             builder.Services.AddControllers();
             builder.Services.AddSignalR();
             builder.Services.AddEndpointsApiExplorer();
-            builder.Services.AddSwaggerGen();
+
+            builder.Services.AddSwaggerGenWithAuth();
+
+            //builder.Services.AddSingleton<PasswordHasher>();
+            builder.Services.AddSingleton<TokenProvider>();
+
+            builder.Services.AddAuthorization();
+            builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(o =>
+            {
+                o.RequireHttpsMetadata = false;
+                o.TokenValidationParameters = new TokenValidationParameters
+                {
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Secret"])),
+                    ValidIssuer = builder.Configuration["Jwt:Issuer"],
+                    ValidAudience = builder.Configuration["Jwt:Audience"],
+                    ClockSkew = TimeSpan.Zero
+
+                };
+            });
 
             var allowedOrigins = builder.Configuration.GetValue<string>("allowedOrigins")!.Split(",");
 
@@ -52,6 +77,7 @@ namespace Backend {
 
             app.UseCors();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.MapHub<ChatHub>("/chat");

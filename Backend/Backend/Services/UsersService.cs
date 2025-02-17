@@ -80,8 +80,9 @@ public static class UsersService
         reader.Read();
 
         string storedPassword = reader.GetString("password");
-        if (password != storedPassword)
-            return null; // TODO: exception is begging to be thrown here
+
+        if(!BCrypt.Net.BCrypt.Verify(password, storedPassword))
+            throw new Exception("Wrong password");
 
         bool isBanned = reader.GetBoolean("is_banned");
         if (isBanned)
