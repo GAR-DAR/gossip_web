@@ -34,3 +34,13 @@ body::before {
     background-size: cover;
     z-index: -1;
 }
+
+@font-face {
+    font-family: "Roboto";
+    src: url('/assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "RopaSans";
+    src: url('/assets/fonts/RopaSans-Regular.ttf');
+}

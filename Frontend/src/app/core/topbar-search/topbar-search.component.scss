@@ -1,0 +1,46 @@
+.search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;  
+    max-width: 400px; 
+    min-width: 200px; 
+    border-radius: 30px;
+    background: rgba(178, 237, 255, 0.2);
+    padding: 1px;
+    margin: 0 auto; 
+}
+
+.search-icon {
+    height: 27px; 
+    margin-left: 7px;
+}
+
+.search-bar input {
+    font-family: "Roboto";
+    flex-grow: 1; 
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 16px;
+    color: white;
+    padding: 10px;
+}
+
+.search-bar input::placeholder {
+    color: rgb(173, 171, 177);
+}
+
+// Адаптація під маленькі екрани
+@media (max-width: 768px) {
+    .search-bar {
+        max-width: 90%; 
+    }
+}
+
+@media (max-width: 480px) {
+    .search-bar {
+        max-width: 80%; 
+    }
+}

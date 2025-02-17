@@ -1,0 +1,38 @@
+.authorized {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-right: 17px;
+}
+
+.user-icon {
+    height: 35px; 
+    width: 35px; 
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.user-btn:hover .user-icon {
+    filter: brightness(95%); 
+}
+
+.user-btn:active .user-icon {
+    transform: scale(0.95); 
+}
+
+.authorized span {
+    font-family: "Roboto", sans-serif;
+    font-size: 20px;
+    font-weight: 500;
+    color: white; 
+}

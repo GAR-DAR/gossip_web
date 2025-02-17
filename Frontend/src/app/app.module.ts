@@ -18,6 +18,10 @@ import { RegisterContentStep2Component } from './auth/register-content-step2/reg
 import { AddChatComponent } from './navigation/chat/add-chat/add-chat.component';
 import { AddChatUserComponent } from './navigation/chat/add-chat/add-chat-user/add-chat-user.component';
 import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
+import { TopbarAuthComponent } from './core/topbar-auth/topbar-auth.component'; 
+import { TopbarUnauthComponent } from './core/topbar-unauth/topbar-unauth.component'; 
+import { TopbarSearchComponent } from './core/topbar-search/topbar-search.component';
+import { TopbarComponent } from './core/topbar/topbar.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +41,10 @@ import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
     AddChatComponent,
     AddChatUserComponent,
     AddTopicComponent,
+    TopbarAuthComponent,
+    TopbarUnauthComponent,
+    TopbarSearchComponent,
+    TopbarComponent,
   ],
   imports: [
     BrowserModule,
