@@ -1,2 +1,14 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
 
+.main-content {
+    display: flex;
+    flex: 1;
+}
 
+router-outlet {
+    flex: 1; /* Займає весь доступний простір, крім сайдбара */
+}

@@ -22,6 +22,7 @@ import { TopbarAuthComponent } from './core/topbar-auth/topbar-auth.component';
 import { TopbarUnauthComponent } from './core/topbar-unauth/topbar-unauth.component'; 
 import { TopbarSearchComponent } from './core/topbar-search/topbar-search.component';
 import { TopbarComponent } from './core/topbar/topbar.component';
+import { SidebarComponent } from './core/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { TopbarComponent } from './core/topbar/topbar.component';
     TopbarUnauthComponent,
     TopbarSearchComponent,
     TopbarComponent,
+    SidebarComponent,
   ],
   imports: [
     BrowserModule,
