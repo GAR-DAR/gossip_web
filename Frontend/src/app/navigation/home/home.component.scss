@@ -1,0 +1,29 @@
+.button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.button button {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: #274674;
+    color: white;
+    border: 2px solid #6393c9; /* Вказуємо ширину та стиль кордону */
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.button button img {
+    width: 24px;
+    height: 24px;
+}
+
+.button button:hover {
+    background-color: #6393c9;
+    border-color: #274674;
+}
