@@ -1,11 +1,10 @@
-
 using Backend.Services;
 using Backend.Hubs;
+using Microsoft.Extensions.Configuration;  // для доступу до конфігурації
 using System;
-using Microsoft.AspNetCore.SignalR;
 
-namespace Backend {
-
+namespace Backend
+{
     public class Program
     {
         public static class Globals
@@ -16,11 +15,9 @@ namespace Backend {
 
         static void Main(string[] args)
         {
-
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
             builder.Services.AddSignalR();
             builder.Services.AddEndpointsApiExplorer();
@@ -39,6 +36,9 @@ namespace Backend {
                     });
             });
 
+            // Додаємо сервіс для відправки email
+            builder.Services.AddTransient<EmailService>();  // Зареєстрували EmailService
+
             var app = builder.Build();
 
             // Configure the HTTP request pipeline.
@@ -49,20 +49,13 @@ namespace Backend {
             }
 
             app.UseHttpsRedirection();
-
             app.UseCors();
-
             app.UseAuthorization();
 
             app.MapHub<ChatHub>("/chat");
-
             app.MapControllers();
 
             app.Run();
-
         }
     }
-
-
 }
-
