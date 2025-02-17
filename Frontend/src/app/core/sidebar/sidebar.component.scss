@@ -1,0 +1,47 @@
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 300px;
+    height: 100%;
+    background-color: rgba(1, 35, 80, 0.9);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 100px;
+}
+
+.sidebar-button {
+    width: 300px;
+    height: 60px;
+    background-color: transparent;
+    color: white;
+    font-family: 'Segoe UI';
+    font-size: 25px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 20px;
+}
+
+.sidebar-button .icon {
+    width: 35px;
+    height: 35px;
+    margin-right: 20px;
+}
+
+.sidebar-button:hover {
+    background-color: #0c2a5c;
+    color: #6393c9;
+}
+
+.sidebar-button:hover .topics-icon {
+    content: url('/assets/images/topicsdanube.png'); /* Змінюємо зображення при наведенні */
+}
+
+.sidebar-button:hover .chats-icon {
+    content: url('/assets/images/chatsdanube.png'); /* Змінюємо зображення при наведенні */
+}

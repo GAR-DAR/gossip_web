@@ -18,6 +18,8 @@ import { RegisterContentStep2Component } from './auth/register-content-step2/reg
 import { AddChatComponent } from './navigation/chat/add-chat/add-chat.component';
 import { AddChatUserComponent } from './navigation/chat/add-chat/add-chat-user/add-chat-user.component';
 import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
+import { SidebarComponent } from './core/sidebar/sidebar.component';
+import { HomeComponent } from './navigation/home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +39,8 @@ import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
     AddChatComponent,
     AddChatUserComponent,
     AddTopicComponent,
+    SidebarComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
