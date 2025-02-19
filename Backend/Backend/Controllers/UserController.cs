@@ -1,4 +1,3 @@
-﻿using System.Net;
 using Backend.Infrastructure;
 using Backend.Models.ModelsFull;
 using Backend.Models.ModelsID;
@@ -23,9 +22,6 @@ namespace Backend.Controllers
                 return NotFound();
             }
 
-            //return Ok(userModelID);
-
-            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Username, userModelID.Password) });
         }
 
         [HttpPost("login/email")]
@@ -42,11 +38,9 @@ namespace Backend.Controllers
             {
                 return Unauthorized("Wrong password!");
             }
-
-            // return Ok(userModelID);
-
-            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password) });
         }
+
+        
 
         [HttpPost("register/first")]
         public IActionResult RegisterFirst(string username, string email, string password)

@@ -34,7 +34,6 @@ namespace Backend
             //builder.Services.AddSingleton<PasswordHasher>();
             builder.Services.AddSingleton<TokenProvider>();
 
-            builder.Services.AddAuthorization();
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(o =>
             {
