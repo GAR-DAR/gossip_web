@@ -34,6 +34,11 @@ namespace Backend
             //builder.Services.AddSingleton<PasswordHasher>();
             builder.Services.AddSingleton<TokenProvider>();
 
+            builder.Services.AddAuthorization(options =>
+            {
+                options.AddPolicy("ModeratorPolicy", policy => policy.RequireRole("Moderator"));
+            });
+
             builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(o =>
             {
@@ -72,13 +77,10 @@ namespace Backend
 
             app.UseHttpsRedirection();
             app.UseCors();
-
             app.UseAuthentication();
             app.UseAuthorization();
-
             app.MapHub<ChatHub>("/chat");
             app.MapControllers();
-
             app.Run();
         }
     }
