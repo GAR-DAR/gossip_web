@@ -5,16 +5,9 @@ using Microsoft.Extensions.Configuration;
 
 namespace Backend.Services
 {
-    public class EmailService
+    public static class EmailService
     {
-        private readonly IConfiguration _config;
-
-        public EmailService(IConfiguration config)
-        {
-            _config = config;
-        }
-
-        public async Task SendConfirmationEmailAsync(string to, string confirmationLink)
+        public static async Task SendConfirmationEmailAsync(string to, string confirmationLink, IConfiguration _config)
         {
             var smtpSettings = _config.GetSection("SmtpSettings");
 
