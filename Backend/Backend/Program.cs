@@ -9,8 +9,9 @@ namespace Backend
     {
         public static class Globals
         {
+            public static readonly IConfiguration configuration = new ConfigurationBuilder().AddJsonFile("appsettings.json").Build();
             public static DatabaseService db = new DatabaseService();
-            //public static IHubContext<ChatHub> Clients { get; set; }
+            //public static readonly TokenProvider tokenProvider = new TokenProvider(configuration);
         }
 
         static void Main(string[] args)
@@ -35,9 +36,6 @@ namespace Backend
                             .AllowAnyMethod();
                     });
             });
-
-            // Додаємо сервіс для відправки email
-            builder.Services.AddTransient<EmailService>();  // Зареєстрували EmailService
 
             var app = builder.Build();
 

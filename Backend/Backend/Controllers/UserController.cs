@@ -10,6 +10,14 @@ namespace Backend.Controllers
     [Route("User")]
     public class UserController : ControllerBase
     {
+        [HttpPost("send/email")]
+        public IActionResult SendEmail(string email, string message)
+        {
+            EmailService.SendConfirmationEmailAsync(email, message, Program.Globals.configuration);
+
+            return Ok();
+        }
+
         [HttpPost("login/username")]
         public IActionResult UsernameLogin(string username, string password)
         {
