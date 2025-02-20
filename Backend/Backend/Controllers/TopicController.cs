@@ -4,6 +4,7 @@ using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using static Backend.Program;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Backend.Controllers
 {
@@ -11,6 +12,7 @@ namespace Backend.Controllers
     [Route("Topics")]
     public class TopicController : Controller
     {
+        [Authorize]
         //pagination will be implemented in the future
         [HttpGet("home")]
         public IActionResult LoadAllTopics(int? page, int? amount)
