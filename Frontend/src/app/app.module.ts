@@ -29,6 +29,7 @@ import { provideHttpClient } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button'; 
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { MatButtonModule } from '@angular/material/button';
     BrowserModule,
     AppRoutingModule,
     MatDialogModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule
   ],
   providers: [ provideHttpClient() ],
   bootstrap: [AppComponent]
