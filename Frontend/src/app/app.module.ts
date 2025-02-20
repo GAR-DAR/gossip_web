@@ -27,6 +27,7 @@ import { TopicComponent } from './shared/components/topic/topic.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { OpenedTopicComponent } from './navigation/opened-topic/opened-topic.component';
 
 @NgModule({
   declarations: [
@@ -54,6 +55,7 @@ import { TestComponent } from './test/test.component';
     TopicComponent,
     HomeComponent,
     TestComponent,
+    OpenedTopicComponent,
   ],
   imports: [
     BrowserModule,
