@@ -27,6 +27,8 @@ import { TopicComponent } from './shared/components/topic/topic.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button'; 
 
 @NgModule({
   declarations: [
@@ -58,6 +60,8 @@ import { TestComponent } from './test/test.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatDialogModule,
+    MatButtonModule
   ],
   providers: [ provideHttpClient() ],
   bootstrap: [AppComponent]
