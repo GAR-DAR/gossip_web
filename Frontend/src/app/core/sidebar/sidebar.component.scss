@@ -40,8 +40,10 @@
 
 .sidebar-button:hover .topics-icon {
     content: url('/assets/images/topicsdanube.png'); /* Змінюємо зображення при наведенні */
+    content: url('/assets/images/topicsdanube.png'); 
 }
 
 .sidebar-button:hover .chats-icon {
     content: url('/assets/images/chatsdanube.png'); /* Змінюємо зображення при наведенні */
+    content: url('/assets/images/chatsdanube.png');
 }
