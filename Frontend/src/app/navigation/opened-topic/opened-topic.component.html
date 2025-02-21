@@ -1,0 +1,67 @@
+<div class="container">
+    <button class="back-button"></button>
+    <div class="main-area">
+        <div class="topic">
+            <div class="first-row">
+                <img class="icon" src="assets/images/test.png">
+                <div class="topic-info">
+                    <span class="author text">Author</span>
+                    <span class="date text">5 mins ago</span>
+                </div>
+            </div>
+            <span class="title text">Title</span>
+            <span class="content text">Content</span>
+            <div class="tags">
+                <span class="tag">Tag1</span>
+                <span class="tag">Tag2</span>
+                <span class="tag">Tag3</span>
+            </div>
+
+            <div class="second-row">
+                <button class="upvote-button"></button>
+                <span class="rating text">0</span>
+                <button class="downvote-button"></button>
+                <img class="comments-icon" src="assets/images/comment.ico">
+                <span class="comments-count text">0</span>
+            </div>
+
+            <div class="input">
+                <input class="comment-input">
+                <button class="send-button"></button>    
+            </div>
+        </div>
+
+        <div class="replies">
+            <div class="reply-container" *ngFor="let reply of replies">
+                <div class="reply-first-row">
+                    <img class="icon" src="assets/images/test.png">
+                    <div class="reply-info">
+                        <span class="author text">Author</span>
+                        <span class="date text">5 mins ago</span>
+                    </div>
+                </div>
+                <span class="content1 text">Content</span>
+
+                <div class="second-row">
+                    <button class="upvote-button reply"></button>
+                    <span class="rating text">0</span>
+                    <button class="downvote-button reply"></button>
+                    <button class="reply-button text">Reply</button>
+                </div>
+
+                <div class="replies-to-replies">
+                    <div class="reply-to-reply-container" *ngFor="let reply of repliesToReplies">
+                        <div class="reply-first-row">
+                            <img class="icon" src="assets/images/test.png">
+                            <div class="reply-info">
+                                <span class="author text">Author</span>
+                                <span class="date text">5 mins ago</span>
+                            </div>
+                        </div>
+                        <span class="content1 text">Content</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

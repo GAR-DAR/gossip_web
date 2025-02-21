@@ -1,10 +1,26 @@
 <div class="container">
-    <button class="top-right-button">
-        <img src="assets/Close.png" alt="icon" class="icon-image normal-icon">
-        <img src="assets/CloseDanube.png" alt="icon" class="icon-image hover-icon">
-    </button>
-    <app-register-content-step1></app-register-content-step1>
-
+    <div class="head">
+        <span>Log In</span>
+        <button class="top-right-button" (click)="closeDialog()">
+            <img src="assets/images/close.png" alt="icon" class="icon-image normal-icon">
+            <img src="assets/images/closeDanube.png" alt="icon" class="icon-image hover-icon">    
+        </button>
+    </div>
     
-  </div>
-  
+    <form>
+        <div class="form-group">
+            <label for="username">Email or username</label>
+            <input type="text" id="username" name="username" [(ngModel)]="login">
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" [(ngModel)]="password">
+        </div>
+        <p class="SignUp">Don't have an account? Sign up.</p>
+        <button class="google-button">
+            <img class="google-icon" src="assets/images/google.ico">
+            <span>Log In with Google</span>
+        </button>
+        <button class="login-button">Log In</button>
+    </form>
+</div>

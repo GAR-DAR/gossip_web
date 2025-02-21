@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="info-row">
+        <img src="{{ topic.author.photo }}" class="profile-image">
+        <div class="info">
+            <span class="username text">{{ topic.author.username }}</span>
+            <span class="date text">{{ topic.author.createdAt | date:'dd.MM.yyyy'}}</span>
+        </div>
+    </div>
+    <span class="title text">{{ topic.title }}</span>
+    <span class="content text">{{ topic.content }}</span>
+</div>

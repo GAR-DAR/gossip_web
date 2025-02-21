@@ -2,10 +2,13 @@ html, body {
     padding: 0;
     margin: 0;
     height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 ::-webkit-scrollbar {
     width: 12px;
+    background-color: #002552;
 }
 
 ::-webkit-scrollbar-track {
@@ -33,4 +36,74 @@ body::before {
     background: url('/assets/images/background.png') no-repeat center center;
     background-size: cover;
     z-index: -1;
+}
+
+.back-button {
+    background-color: transparent;
+    border: 0;
+    background-image: url('/assets/images/back.png');
+    height: 40px;
+    width: 40px;
+    background-size: 40px;
+    margin-left: 40px;
+    margin-right: 40px;
+    transition: background-image 0.3s ease-in-out; /* Додаємо плавний перехід */
+}
+
+.back-button:hover {
+    cursor: pointer;
+    background-image: url('/assets/images/backDanube.png');
+}
+
+.tag {
+    background-color: rgba(163, 166, 199, 0.8);
+    border-radius: 10px;
+    padding: 4px;
+    color: black;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-right: 7px;
+    font-size: 14px;
+}
+
+.send-button {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 0px;
+    background-color: #6393c9;
+    background-image: url("/assets/images/send.png");
+    background-size: 30px;
+    background-repeat: no-repeat;
+    background-position: center right 13px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.send-button:hover {
+    background-color: #254874;
+    background-image: url("/assets/images/sendDanube.png");
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url('/assets/fonts/Roboto-Regular.ttf');
+}
+
+@font-face {
+    font-family: "RopaSans";
+    src: url('/assets/fonts/RopaSans-Regular.ttf');
+}
+
+.mdc-dialog__surface {
+    background-color: transparent !important;
+    overflow-y: hidden !important;
+}
+
+.custom-dialog-container {
+    height: 600px;
+    width: 500px;
+}
+
+.cdk-global-scrollblock {
+    overflow-y: hidden !important;
 }

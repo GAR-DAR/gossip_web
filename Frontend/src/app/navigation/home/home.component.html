@@ -1,5 +1,4 @@
-<div class="button">
-    <button type="button">
-        <img src="/assets/images/addchat.png" alt="Add Chat Icon" style="width: 40px; height: 40px;">
-    </button>
+<div class="container">
+    <app-topic *ngFor="let topic of topics" [topic]="topic"></app-topic>
 </div>
+<button class="floating-button" (click)="navigateToCreateTopic()">+</button>

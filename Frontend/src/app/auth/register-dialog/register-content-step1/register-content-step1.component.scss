@@ -1,0 +1,87 @@
+form {
+    width: 300px;
+    height: 400px;
+}
+
+.form-group label {
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    display: block;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #6393c9;
+    border-radius: 5px;
+    background-color: #002552;
+    color: #ffffff;
+
+}
+
+.form-group input:focus {
+    border: 2px solid white;
+    outline: none;
+}
+
+.LogIn {
+    font-family: 'Segoe UI';
+    text-align: center;
+    text-decoration: underline;
+    color: #6393c9;
+    cursor: pointer;
+    margin-top: 15px;
+
+}
+
+.button-group {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.login-button {
+    background-color: #6393c9;
+    border: 0px;
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    width: 100%;
+}
+
+.login-button:hover {
+    background-color: #274674;
+}
+
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    padding: 4px;
+    background-color: #002552;
+    border: 2px solid #6393c9;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.google-icon {
+    height: 40px;
+}
+
+.google-button:hover {
+    background-color: #274674;
+}

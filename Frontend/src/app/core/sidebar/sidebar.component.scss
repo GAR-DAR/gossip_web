@@ -1,49 +1,40 @@
-.sidebar {
-    position: fixed;
-    left: 0;
-    top: 0;
-    width: 300px;
-    height: 100%;
-    background-color: rgba(1, 35, 80, 0.9);
+.container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    padding-top: 100px;
+    height: 100%;
+    background-color: rgba(0, 37, 82, 0.7);
 }
 
 .sidebar-button {
-    width: 300px;
-    height: 60px;
     background-color: transparent;
+    border: 0;
     color: white;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 25px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    padding: 20px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding-left: 20px;
-}
-
-.sidebar-button .icon {
-    width: 35px;
-    height: 35px;
-    margin-right: 20px;
+    transition: background-color 0.3s;
+    transition: color 0.3s;
 }
 
 .sidebar-button:hover {
-    background-color: #0c2a5c;
+    background-color: rgba(0, 37, 82, 0.8);
+}
+
+.icon {
+    height: 25px;
+    margin-right: 10px;
+}
+
+.sidebar-button:hover {
     color: #6393c9;
 }
 
-.sidebar-button:hover .topics-icon {
-    content: url('/assets/images/topicsdanube.png'); /* Змінюємо зображення при наведенні */
-    content: url('/assets/images/topicsdanube.png'); 
+.sidebar-button.topics:hover .icon {
+    content: url('/assets/images/topicsDanube.ico');
 }
 
-.sidebar-button:hover .chats-icon {
-    content: url('/assets/images/chatsdanube.png'); /* Змінюємо зображення при наведенні */
-    content: url('/assets/images/chatsdanube.png');
+.sidebar-button.chats:hover .icon {
+    content: url('/assets/images/messageDanube.ico');
 }

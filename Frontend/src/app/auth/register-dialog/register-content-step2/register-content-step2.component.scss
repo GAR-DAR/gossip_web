@@ -1,0 +1,102 @@
+.head{
+    color: #ffffff;
+    font-size: 35px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+    margin-bottom: 10px;
+}
+
+.form-group{
+    margin: 0;
+    padding: 0;
+}
+
+.form-group label {
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    display: block;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #6393c9;
+    border-radius: 5px;
+    background-color: #002552; /* Change input background color */
+    color: #ffffff; /* Change input text color to white */
+    margin-bottom: 5px;
+}
+
+.form-group select:focus {
+    border: 2px solid white;
+}
+
+.block {
+    display: flex;
+    margin-bottom: 30px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.Another-group label {
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    display: block;
+    color: #ffffff;
+    margin-bottom: 3px;
+}
+
+.Another-group select {
+    padding: 10px;
+    box-sizing: border-box;
+    border: 2px solid #6393c9;
+    border-radius: 5px;
+    background-color: #002552; /* Change input background color */
+    color: #ffffff; /* Change input text color to white */
+}
+
+
+
+.button-group button:hover {
+    background-color: #274674;
+}
+
+.button-group{
+    display: flex;
+    justify-content: space-between;
+}
+
+.button-group button{
+    background-color: #6393c9;
+    border: 0px;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+}
+
+.degree-group {
+    width: 65%;
+}
+
+.degree-select {
+    width: 100%;
+}
+
+.term-group {
+    width: 30%;
+}
+
+.term-select {
+    width: 100%;
+}
