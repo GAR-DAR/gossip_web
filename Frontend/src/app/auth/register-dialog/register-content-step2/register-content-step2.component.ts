@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-register-content-step2',
@@ -8,5 +8,9 @@ import { Component } from '@angular/core';
   styleUrl: './register-content-step2.component.scss'
 })
 export class RegisterContentStep2Component {
+  @Output() nextPressedChange = new EventEmitter<boolean>();
 
+  onNextPressed() {
+    this.nextPressedChange.emit(false);
+  }
 }

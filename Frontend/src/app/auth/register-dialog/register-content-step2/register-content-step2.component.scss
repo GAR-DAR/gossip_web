@@ -38,8 +38,9 @@
 
 .block {
     display: flex;
-    justify-content: space-between;
     margin-bottom: 30px;
+    width: 100%;
+    justify-content: space-between;
 }
 
 .Another-group label {
@@ -84,12 +85,18 @@
     font-size: 20px;
 }
 
-.degree-select{
-    width: 150px;
+.degree-group {
+    width: 65%;
 }
 
-.term-select{
-    margin-right: 60px;
-    width: 70px;
+.degree-select {
+    width: 100%;
 }
 
+.term-group {
+    width: 30%;
+}
+
+.term-select {
+    width: 100%;
+}

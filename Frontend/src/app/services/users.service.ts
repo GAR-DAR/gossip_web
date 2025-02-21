@@ -11,6 +11,6 @@ export class UsersService {
   constructor(private http: HttpClient) { }
 
   getUsersByIds(ids: number[]) : Observable<UserModelId[]> {
-    return this.http.post<UserModelId[]>(`https://localhost:7062/Users/getusers`, ids);
+    return this.http.post<UserModelId[]>(`https://localhost:7062/User/getusers`, ids);
   }
 }

@@ -1,0 +1,26 @@
+<form #registerForm="ngForm" (ngSubmit)="onNextPressed(registerForm)">
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="text" id="email" name="email" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="Username">Username</label>
+        <input type="text" id="Username" name="Username" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" ngModel required>
+    </div>
+    <div class="form-group">
+        <label for="repeatpassword">Repeat password</label>
+        <input type="password" id="repeatpassword" name="repeatpassword" ngModel required>
+    </div>
+    <p class="LogIn">Have an account? Log in.</p>
+    <button class="google-button">
+        <img class="google-icon" src="assets/images/google.ico">
+        <span>Log In with Google</span>
+    </button>
+    <div class="button-group">
+        <button class="login-button" type="submit" [disabled]="!registerForm.valid">Next</button>    
+    </div>
+</form>

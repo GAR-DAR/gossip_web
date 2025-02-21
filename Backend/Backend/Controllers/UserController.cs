@@ -37,29 +37,30 @@ namespace Backend.Controllers
         }
 
         [HttpPost("login/username")]
-        public IActionResult UsernameLogin(string username, string password)
+        public IActionResult UsernameLogin([FromBody] AuthUserModel authUser)
         {
-            UserModelID userModelID = UsersService.SignIn(null, username, password, Backend.Program.Globals.db.Connection);
+            UserModelID userModelID = UsersService.SignIn(null, authUser.Login, authUser.Password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
             {
                 return NotFound();
             }
+
 
             return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password, userModelID.Role) });
         }
 
         [HttpPost("login/email")]
-        public IActionResult EmailLogin(string email, string password)
+        public IActionResult EmailLogin([FromBody] AuthUserModel authUser)
         {
-            UserModelID userModelID = UsersService.SignIn(email, null, password, Backend.Program.Globals.db.Connection);
+            UserModelID userModelID = UsersService.SignIn(authUser.Login, null, authUser.Password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
             {
                 return NotFound();
             }
 
-            if (!BCrypt.Net.BCrypt.Verify(password, userModelID.Password))
+            if (!BCrypt.Net.BCrypt.Verify(authUser.Password, userModelID.Password))
             {
                 return Unauthorized("Wrong password!");
             }
@@ -102,7 +103,7 @@ namespace Backend.Controllers
             return Ok();
         }
 
-        [HttpPost("initToken")]
+        [HttpGet("initToken")]
         public IActionResult InitToken(string token)
         {
             var handler = new JwtSecurityTokenHandler();

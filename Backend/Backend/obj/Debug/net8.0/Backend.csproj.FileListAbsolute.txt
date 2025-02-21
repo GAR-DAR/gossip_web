@@ -284,3 +284,12 @@ C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\obj
 C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\obj\Debug\net8.0\Backend.pdb
 C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\obj\Debug\net8.0\Backend.genruntimeconfig.cache
 C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\obj\Debug\net8.0\ref\Backend.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\BCrypt.Net-Next.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Abstractions.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Logging.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\Microsoft.IdentityModel.Tokens.dll
+C:\Users\stelm\OneDrive\Документы\GitHub\gossip_web\Backend\Backend\bin\Debug\net8.0\System.IdentityModel.Tokens.Jwt.dll
