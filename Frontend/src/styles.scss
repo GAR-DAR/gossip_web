@@ -50,12 +50,14 @@ body::before {
 
 .mdc-dialog__surface {
     background-color: transparent !important;
-    overflow: hidden;
+    overflow-y: hidden !important;
 }
-
 
 .custom-dialog-container {
     height: 600px;
     width: 500px;
-    overflow-y: hidden;
+}
+
+.cdk-global-scrollblock {
+    overflow-y: hidden !important;
 }
