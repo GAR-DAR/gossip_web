@@ -11,10 +11,9 @@ import { ChatTopbarComponent } from './navigation/chat/opened-chat/chat-topbar/c
 import { InputComponent } from './navigation/chat/opened-chat/input/input.component';
 import { MessagesFieldComponent } from './navigation/chat/opened-chat/messages-field/messages-field.component';
 import { MessageComponent } from './shared/components/message/message.component';
-import { AuthContentComponent } from './auth/auth-content/auth-content/auth-content.component';
 import { AuthDialogComponent } from './auth/auth-dialog/auth-dialog/auth-dialog.component';
-import { RegisterContentStep1Component } from './auth/register-content-step1/register-content-step1/register-content-step1.component';
-import { RegisterContentStep2Component } from './auth/register-content-step2/register-content-step2/register-content-step2.component';
+import { RegisterContentStep1Component } from './auth/register-dialog/register-content-step1/register-content-step1.component';
+import { RegisterContentStep2Component } from './auth/register-dialog/register-content-step2/register-content-step2.component';
 import { AddChatComponent } from './navigation/chat/add-chat/add-chat.component';
 import { AddChatUserComponent } from './navigation/chat/add-chat/add-chat-user/add-chat-user.component';
 import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
@@ -27,7 +26,6 @@ import { TopicComponent } from './shared/components/topic/topic.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
-import { OpenedTopicComponent } from './navigation/opened-topic/opened-topic.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +38,6 @@ import { OpenedTopicComponent } from './navigation/opened-topic/opened-topic.com
     InputComponent,
     MessagesFieldComponent,
     MessageComponent,
-    AuthContentComponent,
     AuthDialogComponent,
     RegisterContentStep1Component,
     RegisterContentStep2Component,
@@ -55,11 +52,13 @@ import { OpenedTopicComponent } from './navigation/opened-topic/opened-topic.com
     TopicComponent,
     HomeComponent,
     TestComponent,
-    OpenedTopicComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    MatDialogModule,
+    MatButtonModule,
+    FormsModule
   ],
   providers: [ provideHttpClient() ],
   bootstrap: [AppComponent]

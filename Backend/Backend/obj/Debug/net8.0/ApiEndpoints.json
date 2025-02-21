@@ -227,7 +227,7 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "EditUserInfo",
-    "RelativePath": "Users/edit/userinfo",
+    "RelativePath": "User/edit/userinfo",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -243,7 +243,7 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "EditUserPassword",
-    "RelativePath": "Users/edit/userpassword",
+    "RelativePath": "User/edit/userpassword",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -264,7 +264,7 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "EditUserPhoto",
-    "RelativePath": "Users/edit/userphoto",
+    "RelativePath": "User/edit/userphoto",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -285,7 +285,7 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "GetUsersByIds",
-    "RelativePath": "Users/getusers",
+    "RelativePath": "User/getusers",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -300,21 +300,32 @@
   },
   {
     "ContainingType": "Backend.Controllers.UserController",
+    "Method": "InitToken",
+    "RelativePath": "User/initToken",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "token",
+        "Type": "System.String",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UserController",
     "Method": "EmailLogin",
-    "RelativePath": "Users/login/email",
+    "RelativePath": "User/login/email",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "email",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "authUser",
+        "Type": "Backend.Models.ModelsFull.AuthUserModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -322,20 +333,15 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "UsernameLogin",
-    "RelativePath": "Users/login/username",
+    "RelativePath": "User/login/username",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "username",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "password",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "authUser",
+        "Type": "Backend.Models.ModelsFull.AuthUserModel",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -343,7 +349,7 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "RegisterFirst",
-    "RelativePath": "Users/register/first",
+    "RelativePath": "User/register/first",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -369,15 +375,36 @@
   {
     "ContainingType": "Backend.Controllers.UserController",
     "Method": "RegisterSecond",
-    "RelativePath": "Users/register/second",
+    "RelativePath": "User/register/second",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userModelID",
-        "Type": "Backend.Models.ModelsID.UserModelID",
+        "Name": "userModel",
+        "Type": "Backend.Models.ModelsFull.UserModel",
         "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Backend.Controllers.UserController",
+    "Method": "SendEmail",
+    "RelativePath": "User/send/email",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
+        "Name": "message",
+        "Type": "System.String",
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

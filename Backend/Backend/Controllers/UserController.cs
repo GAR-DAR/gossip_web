@@ -1,14 +1,18 @@
-﻿using System.Net;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Net;
+using System.Security.Claims;
+using Backend.Infrastructure;
 using Backend.Models.ModelsFull;
 using Backend.Models.ModelsID;
 using Backend.Services;
 using Microsoft.AspNetCore.Mvc;
 
+
 namespace Backend.Controllers
 {
     [ApiController]
-    [Route("Users")]
-    public class UserController : ControllerBase
+    [Route("User")]
+    public class UserController : ControllerBase 
     {
         [HttpPost("getusers")]
         public IActionResult GetUsersByIds([FromBody] uint[] ids)
@@ -24,32 +28,46 @@ namespace Backend.Controllers
             return Ok(users);
         }
 
+        [HttpPost("send/email")]
+        public IActionResult SendEmail(string email, string message)
+        {
+            EmailService.SendConfirmationEmailAsync(email, message, Program.Globals.configuration);
+
+            return Ok();
+        }
 
         [HttpPost("login/username")]
-        public IActionResult UsernameLogin(string username, string password)
+        public IActionResult UsernameLogin([FromBody] AuthUserModel authUser)
         {
-            UserModelID userModelID = UsersService.SignIn(null, username, password, Backend.Program.Globals.db.Connection);
+            UserModelID userModelID = UsersService.SignIn(null, authUser.Login, authUser.Password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
             {
                 return NotFound();
             }
 
-            return Ok(userModelID);
+
+            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password, userModelID.Role) });
         }
 
         [HttpPost("login/email")]
-        public IActionResult EmailLogin(string email, string password)
+        public IActionResult EmailLogin([FromBody] AuthUserModel authUser)
         {
-            UserModelID userModelID = UsersService.SignIn(email, null, password, Backend.Program.Globals.db.Connection);
+            UserModelID userModelID = UsersService.SignIn(authUser.Login, null, authUser.Password, Backend.Program.Globals.db.Connection);
 
             if (userModelID == null)
             {
                 return NotFound();
             }
 
-            return Ok(userModelID);
+            if (!BCrypt.Net.BCrypt.Verify(authUser.Password, userModelID.Password))
+            {
+                return Unauthorized("Wrong password!");
+            }
+            return Ok(new { Token = Backend.Program.Globals.tokenProvider.Create(userModelID.Email, userModelID.Password, userModelID.Role) });
         }
+
+        
 
         [HttpPost("register/first")]
         public IActionResult RegisterFirst(string username, string email, string password)
@@ -64,12 +82,16 @@ namespace Backend.Controllers
         }
 
         [HttpPost("register/second")]
-        public IActionResult RegisterSecond([FromBody] UserModelID userModelID)
+        public IActionResult RegisterSecond([FromBody] UserModel userModel)
         {
-            if (userModelID == null)
+            if (userModel == null)
             {
                 return BadRequest("Invalid data.");
             }
+
+            userModel.Password = BCrypt.Net.BCrypt.HashPassword(userModel.Password);
+
+            UserModelID userModelID = new(userModel);
 
             userModelID = UsersService.SignUp(userModelID, Backend.Program.Globals.db.Connection);
 
@@ -80,6 +102,33 @@ namespace Backend.Controllers
 
             return Ok();
         }
+
+        [HttpGet("initToken")]
+        public IActionResult InitToken(string token)
+        {
+            var handler = new JwtSecurityTokenHandler();
+            var jwtToken = handler.ReadToken(token) as JwtSecurityToken;
+
+            if (jwtToken == null)
+                return null;
+
+            var email = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.Email).Value;
+            var role = jwtToken.Claims.First(claim => claim.Type == ClaimTypes.Role).Value;
+
+            // Assuming you have a method to get the user by email
+            var user = UsersService.SelectByEmail(email, Backend.Program.Globals.db.Connection);
+            
+            if (user == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(user);
+            }
+           
+        }
+
 
         [HttpPost("edit/userinfo")]
         public IActionResult EditUserInfo([FromBody] UserModelID ChangedUserModelID)

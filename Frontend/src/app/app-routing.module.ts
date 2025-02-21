@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './navigation/home/home.component';
-import { TestComponent } from './test/test.component';
 import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
 import { OpenedTopicComponent } from './navigation/opened-topic/opened-topic.component';
 

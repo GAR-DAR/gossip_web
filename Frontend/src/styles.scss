@@ -93,3 +93,17 @@ body::before {
     font-family: "RopaSans";
     src: url('/assets/fonts/RopaSans-Regular.ttf');
 }
+
+.mdc-dialog__surface {
+    background-color: transparent !important;
+    overflow-y: hidden !important;
+}
+
+.custom-dialog-container {
+    height: 600px;
+    width: 500px;
+}
+
+.cdk-global-scrollblock {
+    overflow-y: hidden !important;
+}

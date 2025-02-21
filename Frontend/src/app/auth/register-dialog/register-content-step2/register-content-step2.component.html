@@ -1,8 +1,5 @@
 <div class="container">
     <form>
-        <div class="head">
-            <span>Sign Up</span>
-        </div>
         <div class="form-group">
             <label for="Status">Status</label>
             <select id="Status" name="Status">
@@ -36,7 +33,7 @@
             </select>
         </div>
         <div class="block">
-            <div class="Another-group">
+            <div class="Another-group degree-group">
                 <label for="Degree">Degree</label>
                 <select class="degree-select" id="Degree" name="Degree">
                     <option value="Bachelor">Bachelor</option>
@@ -44,7 +41,7 @@
                     <option value="PhD">PhD</option>
                 </select>
             </div>
-            <div class="Another-group">
+            <div class="Another-group term-group">
                 <label for="Term">Term</label>
                 <select class="term-select" id="Term" name="Term">
                     <option value="1">1</option>
@@ -55,7 +52,7 @@
             </div>
         </div>
         <div class="button-group">
-            <button type="submit">Back</button>
+            <button (click)="onNextPressed()">Back</button>
             <button type="submit">Next</button>
         </div>
     </form>

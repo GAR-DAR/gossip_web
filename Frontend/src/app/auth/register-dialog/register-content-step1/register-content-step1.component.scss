@@ -1,11 +1,3 @@
-.head{
-    color: #ffffff;
-    font-size: 35px;
-    font-family: 'Segoe UI';
-    font-weight: bold;
-    margin-bottom: 50px;
-}
-
 form {
     width: 300px;
     height: 400px;
@@ -25,9 +17,9 @@ form {
     box-sizing: border-box;
     border: 2px solid #6393c9;
     border-radius: 5px;
-    background-color: #002552; /* Change input background color */
-    color: #ffffff; /* Change input text color to white */
-    
+    background-color: #002552;
+    color: #ffffff;
+
 }
 
 .form-group input:focus {
@@ -35,14 +27,14 @@ form {
     outline: none;
 }
 
-.SignUp {
+.LogIn {
     font-family: 'Segoe UI';
     text-align: center;
     text-decoration: underline;
     color: #6393c9;
     cursor: pointer;
-    margin-top: 40px;
-    
+    margin-top: 15px;
+
 }
 
 .button-group {
@@ -62,8 +54,34 @@ form {
     cursor: pointer;
     font-family: 'Segoe UI';
     font-size: 20px;
+    width: 100%;
 }
 
 .login-button:hover {
+    background-color: #274674;
+}
+
+.google-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border-radius: 15px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    cursor: pointer;
+    padding: 4px;
+    background-color: #002552;
+    border: 2px solid #6393c9;
+    color: white;
+    font-size: 18px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.google-icon {
+    height: 40px;
+}
+
+.google-button:hover {
     background-color: #274674;
 }

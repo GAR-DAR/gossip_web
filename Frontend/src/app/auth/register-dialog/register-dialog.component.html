@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="head">
+        <span>Sign Up</span>
+        <button class="top-right-button" (click)="closeDialog()">
+            <img src="assets/images/close.png" alt="icon" class="icon-image normal-icon">
+            <img src="assets/images/closeDanube.png" alt="icon" class="icon-image hover-icon">
+        </button>
+    </div>
+    <app-register-content-step1 *ngIf="!isNextPressed" (nextPressedChange)="onNextPressedChange($event)"></app-register-content-step1>
+    <app-register-content-step2 *ngIf="isNextPressed" (nextPressedChange)="onNextPressedChange($event)"></app-register-content-step2>
+</div>
