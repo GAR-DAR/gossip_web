@@ -50,11 +50,16 @@
                 </div>
 
                 <div class="replies-to-replies">
-                    <div class="reply-container" *ngFor="let reply of repliesToReplies">
+                    <div class="reply-to-reply-container" *ngFor="let reply of repliesToReplies">
                         <div class="reply-first-row">
                             <img class="icon" src="assets/images/test.png">
                             <div class="reply-info">
+                                <span class="author text">Author</span>
+                                <span class="date text">5 mins ago</span>
+                            </div>
                         </div>
+                        <span class="content1 text">Content</span>
+                    </div>
                 </div>
             </div>
         </div>

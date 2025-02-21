@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Topic } from '../../shared/models/topic';
 
 @Component({
   selector: 'app-opened-topic',
@@ -8,6 +9,7 @@ import { Component } from '@angular/core';
   styleUrl: './opened-topic.component.scss'
 })
 export class OpenedTopicComponent {
+
   replies: any[] = [1, 2, 3, 4, 5];
   repliesToReplies: any[] = [1, 2];
 }
