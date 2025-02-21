@@ -12,7 +12,9 @@ namespace Backend.Controllers
     [Route("Topics")]
     public class TopicController : Controller
     {
-        [Authorize]
+        //why do we need authorize here?
+        //[Authorize]
+
         //pagination will be implemented in the future
         [HttpGet("home")]
         public IActionResult LoadAllTopics(int? page, int? amount)

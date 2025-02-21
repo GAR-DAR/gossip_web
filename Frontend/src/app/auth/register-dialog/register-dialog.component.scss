@@ -1,0 +1,50 @@
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 500px;
+    border: 2px solid #6493c9;
+    border-radius: 25px;
+    background-color: #0c2a5c;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.top-right-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.icon-image {
+    width: 30px;
+    height: 30px;
+}
+
+.hover-icon {
+    display: none;
+}
+
+.top-right-button:hover .normal-icon {
+    display: none;
+}
+
+.top-right-button:hover .hover-icon {
+    display: block;
+}
+
+.head {
+    color: #ffffff;
+    font-size: 35px;
+    font-family: 'Segoe UI';
+    font-weight: bold;
+    margin-bottom: 20px;
+}

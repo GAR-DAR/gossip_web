@@ -47,3 +47,15 @@ body::before {
     font-family: "RopaSans";
     src: url('/assets/fonts/RopaSans-Regular.ttf');
 }
+
+.mdc-dialog__surface {
+    background-color: transparent !important;
+    overflow: hidden;
+}
+
+
+.custom-dialog-container {
+    height: 600px;
+    width: 500px;
+    overflow-y: hidden;
+}
