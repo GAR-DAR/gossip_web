@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
-import { AppRoutingModule } from './app-routing.module';
+import {AppRoutingModule} from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatComponent } from './navigation/chat/chat.component';
 import { ChatElementComponent } from './navigation/chat/chat-element/chat-element.component';
@@ -20,6 +19,7 @@ import { AddChatUserComponent } from './navigation/chat/add-chat/add-chat-user/a
 import { AddTopicComponent } from './navigation/add-topic/add-topic.component';
 import { SidebarComponent } from './core/sidebar/sidebar.component';
 import { HomeComponent } from './navigation/home/home.component';
+import { ProfileEditComponent } from './navigation/profile-edit/profile-edit.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +41,7 @@ import { HomeComponent } from './navigation/home/home.component';
     AddTopicComponent,
     SidebarComponent,
     HomeComponent,
+    ProfileEditComponent,
   ],
   imports: [
     BrowserModule,
