@@ -26,6 +26,12 @@ import { TopicComponent } from './shared/components/topic/topic.component';
 import { HomeComponent } from './navigation/home/home.component';
 import { provideHttpClient } from '@angular/common/http';
 import { TestComponent } from './test/test.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button'; 
+import { FormsModule } from '@angular/forms';
+import { RegisterDialogComponent } from './auth/register-dialog/register-dialog.component';
+import { OpenedTopicComponent } from './navigation/opened-topic/opened-topic.component';
+
 
 @NgModule({
   declarations: [
